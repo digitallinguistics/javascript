@@ -14,6 +14,22 @@ A JavaScript library for working with linguistic data in DLx format. For browser
 
 Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barbara).
 
+## Contents
+
+* [Contributing](#getting-help--contributing)
+* [Usage](#usage)
+* [API Documentation][docs]
+
+## Getting Help & Contributing
+
+* Have a question? [Ask it here.][open]
+
+* Want to request a feature or improvement? [Make a feature request here.][open]
+
+* Found a bug or other problem? [File a bug report here.][open]
+
+* Want to contribute code to the project? [Check out the contributing guidelines.][contributing]
+
 ## Usage
 
 1. Install using npm (`npm i @digitallinguistics/javascript`) or yarn (`yarn add @digitallinguistics/javascript`), or download the library from the [releases page][releases] and include the files you need in your project.
@@ -65,13 +81,15 @@ const lexeme = new Lexeme({/* lexeme data */})
 import dlx from './src/data/punctuation.mjs';
 ```
 
-[Babel]:    https://babeljs.io/
-[docs]:     https://developer.digitallinguistics.io/javascript
-[format]:   https://format.digitallinguistics.io
-[GitHub]:   https://github.com/digitallinguistics/javascript
-[issues]:   https://github.com/digitallinguistics/javascript/issues
-[license]:  https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md
-[npm]:      https://www.npmjs.com/package/@digitallinguistics/javascript
-[personal]: https://danielhieber.com
-[releases]: https://github.com/digitallinguistics/javascript/releases
-[website]:  https://digitallinguistics.io
+[Babel]:        https://babeljs.io/
+[contributing]: https://github.com/digitallinguistics/javascript/blob/master/.github/CONTRIBUTING.md
+[docs]:         https://developer.digitallinguistics.io/javascript
+[format]:       https://format.digitallinguistics.io
+[GitHub]:       https://github.com/digitallinguistics/javascript
+[issues]:       https://github.com/digitallinguistics/javascript/issues
+[license]:      https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md
+[npm]:          https://www.npmjs.com/package/@digitallinguistics/javascript
+[open]:         https://github.com/digitallinguistics/javascript/issues/new
+[personal]:     https://danielhieber.com
+[releases]:     https://github.com/digitallinguistics/javascript/releases
+[website]:      https://digitallinguistics.io
