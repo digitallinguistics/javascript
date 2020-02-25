@@ -1,6 +1,6 @@
 {
-  "name":        "@digitallinguistics/javascript",
-  "version":     "0.1.0",
+  "name": "@digitallinguistics/javascript",
+  "version": "0.1.0",
   "description": "A JavaScript library for working with linguistic data in DLx format",
   "keywords": [
     "DLx",
@@ -11,23 +11,26 @@
     "language documentation",
     "documentary linguistics"
   ],
-  "main":        "src/index.js",
-  "scripts":     {},
+  "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url":  "git+https://github.com/digitallinguistics/javascript.git"
+    "url": "git+https://github.com/digitallinguistics/javascript.git"
   },
   "author": {
     "name": "Daniel W. Hieber",
-    "url":  "https://danielhieber.com"
+    "url": "https://danielhieber.com"
   },
-  "license":  "MIT",
-  "bugs":     "https://github.com/digitallinguistics/javascript/issues",
+  "license": "MIT",
+  "bugs": "https://github.com/digitallinguistics/javascript/issues",
   "homepage": "https://github.com/digitallinguistics/javascript#readme",
   "engines": {
     "node": "13.x"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.6.3"
   }
 }
