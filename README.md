@@ -22,11 +22,11 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 ## Getting Help & Contributing
 
-* Have a question? [Ask it here.][open-issue]
+* Have a question? [Ask it here.][question]
 
-* Want to request a feature or improvement? [Make a feature request here.][open-issue]
+* Want to request a feature or improvement? [Make a feature request here.][feature]
 
-* Found a bug or other problem? [File a bug report here.][open-issue]
+* Found a bug or other problem? [File a bug report here.][report-issue]
 
 * Want to contribute code to the project? [Check out the contributing guidelines.][contributing]
 
@@ -69,13 +69,15 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 [Babel]:        https://babeljs.io/
 [contributing]: https://github.com/digitallinguistics/javascript/blob/master/.github/CONTRIBUTING.md
 [docs]:         https://developer.digitallinguistics.io/javascript
+[feature]:      https://github.com/digitallinguistics/javascript/issues/new?assignees=&labels=feature&template=feature-request.md&title=
 [format]:       https://format.digitallinguistics.io
 [GitHub]:       https://github.com/digitallinguistics/javascript
 [issues]:       https://github.com/digitallinguistics/javascript/issues
 [license]:      https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md
 [npm]:          https://www.npmjs.com/package/@digitallinguistics/javascript
-[open-issue]:   https://github.com/digitallinguistics/javascript/issues/new
+[report-issue]: https://github.com/digitallinguistics/javascript/issues/new?assignees=&labels=bug&template=bug-report.md&title=
 [personal]:     https://danielhieber.com
+[question]:     https://github.com/digitallinguistics/javascript/issues/new?assignees=&labels=question&template=question.md&title=
 [releases]:     https://github.com/digitallinguistics/javascript/releases
 [website]:      https://digitallinguistics.io
 [webpack]:      https://webpack.js.org/
