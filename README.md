@@ -60,9 +60,9 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 5. You can also import standalone submodules, rather than the entire library, by importing the `index.js` file for a module, or a particular file, directly:
 
-```js
-import punctuation from './dlx/src/data/punctuation.js';
-```
+  ```js
+  import punctuation from './dlx/src/data/punctuation.js';
+  ```
 
 6. See the [API documentation][docs] for complete details on using the library.
 
