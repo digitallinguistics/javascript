@@ -4,7 +4,10 @@ parserOptions:
   sourceType: module
 env:
   es2020: true
+  jasmine: true
   shared-node-browser: true
+globals:
+  require: true
 rules:
   id-blacklist:
   - error
