@@ -11,7 +11,7 @@
     "language documentation",
     "documentary linguistics"
   ],
-  "main":        "dlx.js",
+  "main":        "src/index.js",
   "scripts":     {},
   "repository": {
     "type": "git",
@@ -21,15 +21,11 @@
     "name": "Daniel W. Hieber",
     "url":  "https://danielhieber.com"
   },
-  "files": [
-    "dlx.js",
-    "src"
-  ],
   "license":  "MIT",
   "bugs":     "https://github.com/digitallinguistics/javascript/issues",
   "homepage": "https://github.com/digitallinguistics/javascript#readme",
   "engines": {
-    "node": "10.x"
+    "node": "13.x"
   },
   "publishConfig": {
     "access": "public"
