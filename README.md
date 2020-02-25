@@ -22,11 +22,11 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 ## Getting Help & Contributing
 
-* Have a question? [Ask it here.][open]
+* Have a question? [Ask it here.][open-issue]
 
-* Want to request a feature or improvement? [Make a feature request here.][open]
+* Want to request a feature or improvement? [Make a feature request here.][open-issue]
 
-* Found a bug or other problem? [File a bug report here.][open]
+* Found a bug or other problem? [File a bug report here.][open-issue]
 
 * Want to contribute code to the project? [Check out the contributing guidelines.][contributing]
 
@@ -34,52 +34,37 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 1. Install using npm (`npm i @digitallinguistics/javascript`) or yarn (`yarn add @digitallinguistics/javascript`), or download the library from the [releases page][releases] and include the files you need in your project.
 
-2. If your project supports ES modules, you can import the DLx JavaScript library directly from `/src/index.mjs`.
+2. In Node, import the library as follows:
 
-```js
-import dlx from './src/index.mjs';
-```
+  ```js
+  import dlx from '@digitallinguistics/javascript';
+  ```
 
-```html
-<script src=./src/index.mjs type=module></script>
-```
+3. In HTML, link `src/index.js` in a script tag:
 
-3. You can also consume this library as a CommonJS module or AMD module by importing `dlx.mjs` (located in the project root).
+  ```html
+  <script src=dlx/src/index.js type=module></script>
+  ```
 
-```js
-import dlx from './dlx.mjs';
-// OR
-const dlx = require(`./dlx.mjs`);
-```
-
-```html
-<script src=./dlx.mjs></script>
-```
+3. If your project does not support ES modules or recent JavaScript syntax, you may need to bundle and/or transpile this module for use in your code, using libraries like [Babel][Babel] and [webpack][webpack].
 
 4. Use the library in your code:
 
-```js
-const { models } = dlx;
-const { Lexeme } = models;
+  ```js
+  import { models } from '@digitallinguistics/javascript';
 
-const lexeme = new Lexeme({/* lexeme data */})
-```
+  const { Lexeme } = models;
 
-5. See the [API documentation][docs] for complete details on using the library.
+  const lexeme = new Lexeme({/* lexeme data */})
+  ```
 
-**Notes:**
-
-* The JavaScript files in this library use an `.mjs` extension, so the library can be imported in Node (using the `--experimental-modules` flag) or the browser.
-
-* This library is written using the latest JavaScript syntax, so you might need to compile your code using [Babel][Babel] if you import `/src/index.mjs` directly.
-
-* If you are using this library as a bundled dependency, you can import directly from `src/index.mjs`.
-
-* You can also import standalone submodules, rather than importing the entire library, thus reducing the size of your library:
+5. You can also import standalone submodules, rather than the entire library, by importing the `index.js` file for a module, or a particular file, directly:
 
 ```js
-import dlx from './src/data/punctuation.mjs';
+import punctuation from './dlx/src/data/punctuation.js';
 ```
+
+6. See the [API documentation][docs] for complete details on using the library.
 
 [Babel]:        https://babeljs.io/
 [contributing]: https://github.com/digitallinguistics/javascript/blob/master/.github/CONTRIBUTING.md
@@ -89,7 +74,8 @@ import dlx from './src/data/punctuation.mjs';
 [issues]:       https://github.com/digitallinguistics/javascript/issues
 [license]:      https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md
 [npm]:          https://www.npmjs.com/package/@digitallinguistics/javascript
-[open]:         https://github.com/digitallinguistics/javascript/issues/new
+[open-issue]:   https://github.com/digitallinguistics/javascript/issues/new
 [personal]:     https://danielhieber.com
 [releases]:     https://github.com/digitallinguistics/javascript/releases
 [website]:      https://digitallinguistics.io
+[webpack]:      https://webpack.js.org/
