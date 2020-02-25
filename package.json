@@ -12,6 +12,9 @@
     "documentary linguistics"
   ],
   "main": "src/index.js",
+  "scripts": {
+    "docs": "jsdoc -c build/jsdoc.json",
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/digitallinguistics/javascript.git"
