@@ -2,4 +2,6 @@
  * @module models
  */
 
-export default {};
+import Language from './Language.js';
+
+export default { Language };
