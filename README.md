@@ -8,12 +8,15 @@ A JavaScript library for working with linguistic data in DLx format. For browser
 [![npm downloads](https://img.shields.io/npm/dt/@digitallinguistics/javascript.svg)][npm]
 [![GitHub issues](https://img.shields.io/github/issues/digitallinguistics/javascript.svg)][issues]
 [![GitHub test workflow status](https://github.com/digitallinguistics/javascript/workflows/tests/badge.svg)][tests]
+[![Zenodo DOI](https://zenodo.org/badge/180070191.svg)][Zenodo]
 [![GitHub](https://img.shields.io/github/license/digitallinguistics/javascript.svg)][license]
 [![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/javascript.svg?style=social)][GitHub]
 
 [View the API documentation for this library.][docs]
 
-Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barbara).
+Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barbara). Please cite this library using the following model:
+
+> Hieber, Daniel W. 2020. @digitallinguistics/javascript. DOI:[10.5281/zenodo.597714][Zenodo].
 
 ## Contents
 
@@ -83,3 +86,4 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 [tests]:        https://github.com/digitallinguistics/javascript/actions
 [webpack]:      https://webpack.js.org/
 [website]:      https://digitallinguistics.io
+[Zenodo]:       https://zenodo.org/badge/latestdoi/180070191
