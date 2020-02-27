@@ -1,4 +1,4 @@
-const { core } = require(`../index`);
+const { core } = require(`../../test/index.js`);
 
 describe(`core`, () => {
 

@@ -1,4 +1,4 @@
-const { models } = require(`../index`);
+const { models } = require(`../../test`);
 
 describe(`models`, () => {
 
