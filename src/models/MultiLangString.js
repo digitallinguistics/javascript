@@ -1,9 +1,13 @@
 /**
- * @module
+ * @module models.MultiLangString
  */
 
 import isLanguageTag from '../utilities/validate/isLanguageTag.js';
 
+/**
+ * Proxy traps for the MultiLangString class
+ * @type {Object}
+ */
 const classTraps = {
   construct(Target, args) {
 
@@ -52,6 +56,7 @@ function validateString(input) {
 
 /**
  * A class representing a Multi-Language Text / String
+ * @memberof models
  * @extends Map
  *
  * @example

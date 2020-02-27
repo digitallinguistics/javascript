@@ -1,5 +1,5 @@
 /**
- * @module utilities
+ * @namespace utilities
  */
 
 import regexp from './regexp/index.js';

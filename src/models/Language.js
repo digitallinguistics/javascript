@@ -1,11 +1,8 @@
-/**
- * @module
- */
-
 import Model from '../core/Model.js';
 
 /**
  * A class representing a language
+ * @memberof models
  * @extends Model
  */
 class Language extends Model {
