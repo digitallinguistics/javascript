@@ -9,41 +9,6 @@
  * @memberof dlx
  */
 
-const defaultPunctuation = require('./data').punctuation;
-
-/**
- * A factory method that adds an `abbreviation` property to an Object.
- * @param  {Object} obj          The Object to add the `abbreviation` property to
- * @param  {String} propName     The name of the property to add
- * @param  {String} initialValue The initial value to set the `abbreviation` property to
- * @return {Object}              Returns the original object that was passed to the function
- */
-function addAbbreviation(obj, propName = `abbreviation`, initialValue) {
-
-  if (!(obj instanceof Object)) throw new TypeError(`addAbbreviation must be passed an Object.`);
-
-  if (typeof propName !== `string`) throw new TypeError(`The property name to set must be a String.`);
-
-  let abbreviation;
-
-  Object.defineProperty(obj, propName, {
-    configurable: true,
-    enumerable:   true,
-    get() { return abbreviation; },
-    set(val) {
-      if (!val) return;
-      checkProp(val, `abbr`, propName);
-      abbreviation = val;
-      return abbreviation;
-    },
-  });
-
-  if (initialValue) obj[propName] = initialValue;
-
-  return obj;
-
-}
-
 /**
  * A factory function that adds a `type` field to an Object
  * @param  {Object} object The Object to add the `type` field to
@@ -85,10 +50,10 @@ function addURL(object, propName = `url`, initialValue) {
       if (!val) return;
       checkProp(val, `url`, propName);
       value = val;
-      return value;
     },
   });
 
+  // eslint-disable-next-line no-param-reassign
   if (initialValue) object[propName] = initialValue;
   return object;
 
@@ -110,6 +75,7 @@ function aliasLanguage(obj, stringProp, defaultProp) {
       return obj[stringProp][obj.defaultAnalysisLanguage];
     },
     set(val) {
+      // eslint-disable-next-line no-param-reassign
       obj[stringProp][obj.defaultAnalysisLanguage] = val;
     },
   });
@@ -134,79 +100,11 @@ function aliasTranscription(obj, txnProp, defaultProp) {
       return obj[txnProp][obj.defaultOrthography];
     },
     set(val) {
-      obj[txnProp][obj.defaultOrthography] = val;
+      obj[txnProp][obj.defaultOrthography] = val; // eslint-disable-line no-param-reassign
     },
   });
 
   return obj;
-
-}
-
-/**
- * Checks whether an item is valid for the specified type, and returns a generic error message with the provided property name if not.
- * @param  {Any}    item The item to check
- * @param  {String} type The type to check for
- * @param  {String} prop The name of the property to use in the error message
- * @return {Any}         Returns the original value if no error is thrown
- */
-function checkProp(...args) {
-
-  if (args.length !== 3) throw new Error(`Missing arguments to chceckProp function.`);
-
-  const [item, type, prop] = args;
-
-  switch (type) {
-
-    case `abbr`: {
-      if (!isAbbr(item)) throw new TypeError(`The "${prop}" property must be a valid abbreviation.`);
-      break;
-    }
-
-    case `array`: {
-      if (!Array.isArray(item)) throw new TypeError(`The "${prop}" property must be an array.`);
-      break;
-    }
-
-    case `date`: {
-      if (isNaN(Date.parse(item))) throw new TypeError(`The "${prop}" property must be a valid date.`);
-      break;
-    }
-
-    case `integer`: {
-      if (!Number.isInteger(item)) throw new TypeError(`The "${prop}" property must be an integer.`);
-      break;
-    }
-
-    case `iterable`: {
-      if (!isIterable(item)) throw new TypeError(`The "${prop}" property must be an iterable object.`);
-      break;
-    }
-
-    case `number`: {
-      if (typeof item !== `number`) throw new TypeError(`The "${prop}" property must be a number.`);
-      break;
-    }
-
-    case `object`: {
-      if (typeof item !== `object`) throw new TypeError(`The "${prop}" property must be an object.`);
-      break;
-    }
-
-    case `string`: {
-      if (typeof item !== `string`) throw new TypeError(`The "${prop}" property must be a string.`);
-      break;
-    }
-
-    case `url`: {
-      if (!isURL(item)) throw new TypeError(`The "${prop}" property must be a valid URI.`);
-      break;
-    }
-
-    default:
-
-  }
-
-  return item;
 
 }
 
@@ -290,7 +188,6 @@ function defineEnumProp(object, propName, values, initialValue) {
       }
 
       value = val;
-      return value;
 
     },
   });
@@ -420,6 +317,74 @@ function defineSet(object, propName, model, initialValue = new Set) {
 }
 
 /**
+ * Checks whether an item is valid for the specified type, and returns a generic error message with the provided property name if not.
+ * @param  {Any}    item The item to check
+ * @param  {String} type The type to check for
+ * @param  {String} prop The name of the property to use in the error message
+ * @return {Any}         Returns the original value if no error is thrown
+ */
+function checkProp(...args) {
+
+  if (args.length !== 3) throw new Error(`Missing arguments to chceckProp function.`);
+
+  const [item, type, prop] = args;
+
+  switch (type) {
+
+    case `abbr`: {
+      if (!isAbbr(item)) throw new TypeError(`The "${prop}" property must be a valid abbreviation.`);
+      break;
+    }
+
+    case `array`: {
+      if (!Array.isArray(item)) throw new TypeError(`The "${prop}" property must be an array.`);
+      break;
+    }
+
+    case `date`: {
+      if (isNaN(Date.parse(item))) throw new TypeError(`The "${prop}" property must be a valid date.`);
+      break;
+    }
+
+    case `integer`: {
+      if (!Number.isInteger(item)) throw new TypeError(`The "${prop}" property must be an integer.`);
+      break;
+    }
+
+    case `iterable`: {
+      if (!isIterable(item)) throw new TypeError(`The "${prop}" property must be an iterable object.`);
+      break;
+    }
+
+    case `number`: {
+      if (typeof item !== `number`) throw new TypeError(`The "${prop}" property must be a number.`);
+      break;
+    }
+
+    case `object`: {
+      if (typeof item !== `object`) throw new TypeError(`The "${prop}" property must be an object.`);
+      break;
+    }
+
+    case `string`: {
+      if (typeof item !== `string`) throw new TypeError(`The "${prop}" property must be a string.`);
+      break;
+    }
+
+    case `url`: {
+      if (!isURL(item)) throw new TypeError(`The "${prop}" property must be a valid URI.`);
+      break;
+    }
+
+    default:
+
+  }
+
+  return item;
+
+}
+
+/**
  * Tests whether a string is a valid abbreviation according to the [DLx Abbreviation schema]{@link http://developer.digitallinguistics.io/spec/schemas/abbreviation.html}.
  * @param  {String} string The string to test
  * @return {Boolean}       Returns true if the string is a valid abbreviation, false otherwise
@@ -455,22 +420,16 @@ function isIterable(obj) {
  * @return {Boolean}            Returns true if the string is a valid URI, false otherwise
  */
 function isURL(string) {
-  return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(string);
+  return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/iu.test(string);
 }
 
 export {
-  addAbbreviation,
   addType,
   addURL,
   aliasLanguage,
   aliasTranscription,
-  checkProp,
   defineArray,
   defineEnumProp,
   defineProp,
   defineSet,
-  isAbbr,
-  isDateString,
-  isIterable,
-  isURL,
 };
