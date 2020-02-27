@@ -15,7 +15,7 @@
 
 - [ ] Write code to pass the tests. (`npm test`)
 
-- [ ] Add inline code commenting (using [JSDoc][JSDoc] style).
+- [ ] Add inline code commenting (using [JSDoc][JSDoc] style). Add links to cross-referenced modules, and the DLx data format.
 
 - [ ] Generate the developer documentation (`npm run docs`) and check your changes by opening `docs/index.html` in a browser.
 

@@ -1,12 +1,11 @@
 /**
- * @module models
+ * @namespace models
  */
 
-/**
- * @member Language
- * @instance
- * @see module:models/Language
- */
-import Language from './Language.js';
+import Language        from './Language.js';
+import MultiLangString from './MultiLangString.js';
 
-export default { Language };
+export default {
+  Language,
+  MultiLangString,
+};

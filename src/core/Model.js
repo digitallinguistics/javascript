@@ -1,9 +1,6 @@
 /**
- * @module
- */
-
-/**
  * A base Model class
+ * @memberof core
  */
 class Model {
 
