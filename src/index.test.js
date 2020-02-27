@@ -1,4 +1,4 @@
-const { core, models } = require(`../test`);
+const { core, models, utilities } = require(`../test`);
 
 describe(`dlx`, () => {
 
@@ -8,6 +8,10 @@ describe(`dlx`, () => {
 
   it(`models`, () => {
     expect(models).toBeInstanceOf(Object);
+  });
+
+  it(`utilities`, () => {
+    expect(utilities).toBeInstanceOf(Object);
   });
 
 });
