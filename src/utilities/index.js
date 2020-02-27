@@ -2,4 +2,6 @@
  * @module utilities
  */
 
-export default {};
+import regexp from './regexp/index.js';
+
+export default { regexp };

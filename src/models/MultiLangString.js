@@ -2,9 +2,21 @@
  * @module
  */
 
+import isLanguageTag from '../utilities/validate/isLanguageTag.js';
+
+/**
+ * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
+ * @param {Any} input The input to validate
+ */
+function validateLanguageTag(input) {
+  if (!isLanguageTag(input)) {
+    throw new Error(`Each language key must be a valid IETF language tag.`);
+  }
+}
+
 /**
  * Validates a String for MultiLangStrings. Throws a type error if the input is not a String.
- * @param  {Any} input The input to validate
+ * @param {Any} input The input to validate
  */
 function validateString(input) {
   if (typeof input !== `string`) {
@@ -45,20 +57,17 @@ class MultiLangString extends Map {
 
     /* eslint-disable no-param-reassign */
     if (data && typeof data === `string`) data = { eng: data };
-    if (data instanceof Map) data = data.entries();
-    else data = Object.entries(data);
+    if (data instanceof Map) data = Object.fromEntries(data);
     /* eslint-enable no-param-reassign */
 
     // VALIDATE DATA
 
-    const rawData = Object.fromEntries(data);
-
-    // Object.keys(rawData).forEach(validateLanguageTag);
-    Object.values(rawData).forEach(validateString);
+    Object.keys(data).forEach(validateLanguageTag);
+    Object.values(data).forEach(validateString);
 
     // INSTANTIATE MODEL
 
-    super(data);
+    super(Object.entries(data));
 
   }
 }

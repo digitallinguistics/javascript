@@ -71,19 +71,21 @@ describe(modelName, () => {
   describe(`MultiLangString.prototype.{language}`, () => {
 
     const data = { eng: 'Hello world!', spa: 'Hola mundo!' };
-    const mls  = new MultiLangString(data);
 
     it(`Instantiation`, () => {
+      const mls = new MultiLangString(data);
       expect(mls.get(`eng`)).toBe(data.eng);
       expect(mls.get(`spa`)).toBe(data.spa);
     });
 
     it(`Error: set bad language tag`, () => {
-      const setBadLanguageTag = () => mls.set(`Tlahuapa Mixted`, `ayoo`);
+      const mls = new MultiLangString(data);
+      const setBadLanguageTag = () => mls.set(`Tlahuapa Mixtec`, `ayoo`);
       expect(setBadLanguageTag).toThrow();
     });
 
     it(`Error: set bad string`, () => {
+      const mls = new MultiLangString(data);
       const setBadString = () => mls.set(`mix`, true);
       expect(setBadString).toThrow();
     });
