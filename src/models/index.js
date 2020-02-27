@@ -1,4 +1,5 @@
 /**
+ * Models for various linguistic objects, such as Language, Lexeme, etc.
  * @namespace models
  */
 
