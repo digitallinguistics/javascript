@@ -13,9 +13,7 @@
 
 - [ ] Update tests for planned changes. Check that they are failing. (`npm test`)
 
-- [ ] Write code to pass the tests.
-
-- [ ] Check that tests are now passing. (`npm test`)
+- [ ] Write code to pass the tests. (`npm test`)
 
 - [ ] Add inline code commenting (using [JSDoc][JSDoc] style).
 
