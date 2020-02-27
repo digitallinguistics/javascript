@@ -1,4 +1,8 @@
-const { core, models } = require(`../test`);
+const { core, models, utilities } = require(`../test`);
+
+/**
+ * Check that the DLx library has the expected exports
+ */
 
 describe(`dlx`, () => {
 
@@ -8,6 +12,10 @@ describe(`dlx`, () => {
 
   it(`models`, () => {
     expect(models).toBeInstanceOf(Object);
+  });
+
+  it(`utilities`, () => {
+    expect(utilities).toBeInstanceOf(Object);
   });
 
 });

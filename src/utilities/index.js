@@ -1,0 +1,5 @@
+/**
+ * @module utilities
+ */
+
+export default {};
