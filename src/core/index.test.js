@@ -1,9 +1,13 @@
-const { core } = require(`../../test/index.js`);
+const { core: { Model } } = require(`../../test/index.js`);
+
+/**
+ * Check that the core module has the expected exports
+ */
 
 describe(`core`, () => {
 
-  it(`exports an Object`, () => {
-    expect(core).toBeInstanceOf(Object);
+  it(`Model`, () => {
+    expect(Model.name).toBe(`Model`);
   });
 
 });

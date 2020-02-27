@@ -1,9 +1,11 @@
 const { models } = require(`../../test`);
 
+/**
+ * Check that the models module has the expected exports
+ */
+
 describe(`models`, () => {
 
-  it(`exports an Object`, () => {
-    expect(models).toBeInstanceOf(Object);
-  });
+  it(`has the expected exports`);
 
 });
