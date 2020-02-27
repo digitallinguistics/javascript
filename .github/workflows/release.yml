@@ -1,0 +1,37 @@
+name: release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: install Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 13.x
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: run tests
+        run: npm test
+
+      - name: publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: generate docs
+        run: npm run docs
+
+      - name: deploy docs
+        run: npm run gh-pages
