@@ -1,1 +1,3 @@
-export default {};
+import models from './models/index.js';
+
+export { models };

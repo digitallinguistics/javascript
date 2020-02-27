@@ -1,0 +1,5 @@
+/**
+ * @module models
+ */
+
+export default {};

@@ -1,9 +1,9 @@
-const dlx = require(`../test`);
+const { models } = require(`../test`);
 
 describe(`dlx`, () => {
 
-  it(`exports an Object`, () => {
-    expect(dlx).toBeInstanceOf(Object);
+  it(`models`, () => {
+    expect(models).toBeInstanceOf(Object);
   });
 
 });
