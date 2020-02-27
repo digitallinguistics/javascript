@@ -19,16 +19,7 @@ const validateString = string => {
  * @alias MultiLangString
  * @memberof dlx.module:models
  * @extends Map
- * @example
- * const translation = new MultiLangString({
- *   spa: 'Hola, me llamo Daniel.',
- *   eng: 'Hello, my name is Daniel.',
- * });
- *
- * translation.eng = 'Hello, my name is Daniel.';
- *
- * console.log(translation.spa);     // Hola, me llamo Daniel.
- * console.log(translation.ipa);     // ola me jamo danjɛl
+
  */
 class MultiLangString extends Map {
   /**

@@ -9,4 +9,14 @@
  */
 import Language from './Language.js';
 
-export default { Language };
+/**
+ * @member MultiLangString
+ * @instance
+ * @see module:models/MultiLangString
+ */
+import MultiLangString from './MultiLangString.js';
+
+export default {
+  Language,
+  MultiLangString,
+};
