@@ -1,8 +1,8 @@
 # DLx JavaScript Library
 
-A JavaScript library for working with linguistic data in DLx format. For browser and Node.
+A JavaScript library for working with linguistic data in [DLx format][Daffodil]. For browser and Node.
 
-[Digital Linguistics][website] (DLx) is the science of the digital data management of linguistic data, of the kind typically produced during language documentation projects. This repository contains a JavaScript library for working with linguistic data in the [Data Format for Digital Linguistics][format] (Daffodil). It includes models for various linguistic objects, useful data and constants, and other utilities for working with language data.
+[Digital Linguistics][website] (DLx) is the science of the digital data management of linguistic data, of the kind typically produced during language documentation projects. This repository contains a JavaScript library for working with linguistic data in the [Data Format for Digital Linguistics][Daffodil] (Daffodil). It includes models for various linguistic objects, useful data and constants, and other utilities for working with language data.
 
 [![npm version](https://img.shields.io/npm/v/@digitallinguistics/javascript.svg)][npm]
 [![npm downloads](https://img.shields.io/npm/dt/@digitallinguistics/javascript.svg)][npm]
@@ -20,7 +20,7 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 ## Contents
 
-* [Contributing](#getting-help--contributing)
+* [Getting Help & Contributing](#getting-help--contributing)
 * [Usage](#usage)
 * [API Documentation][docs]
 
@@ -33,6 +33,14 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 * Found a bug or other problem? [File a bug report here.][report-issue]
 
 * Want to contribute code to the project? [Check out the contributing guidelines.][contributing]
+
+## Overview
+
+The DLx JavaScript library has the following exports. See the [API documentation][docs] for complete details on the contents of this library.
+
+Export   | Description
+-------- | -----------
+`models` | A collection of objects representing common linguistic objects, such as `Language`, `Lexeme`, etc. These have various utility functions attached to them, and ensure that their data is valid according to the [DLx Data Format][Daffodil].
 
 ## Usage
 
@@ -72,9 +80,9 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 [Babel]:        https://babeljs.io/
 [contributing]: https://github.com/digitallinguistics/javascript/blob/master/.github/CONTRIBUTING.md
+[Daffodil]:     https://format.digitallinguistics.io
 [docs]:         https://developer.digitallinguistics.io/javascript
 [feature]:      https://github.com/digitallinguistics/javascript/issues/new?assignees=&labels=feature&template=feature-request.md&title=
-[format]:       https://format.digitallinguistics.io
 [GitHub]:       https://github.com/digitallinguistics/javascript
 [issues]:       https://github.com/digitallinguistics/javascript/issues
 [license]:      https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md
