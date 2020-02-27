@@ -2,4 +2,11 @@
  * @module models
  */
 
-export default {};
+/**
+ * @member Language
+ * @instance
+ * @see module:models/Language
+ */
+import Language from './Language.js';
+
+export default { Language };
