@@ -53,17 +53,17 @@ describe(modelName, () => {
 
     it(`Error: bad data`, () => {
       const useBadData = () => new MultiLangString(0);
-      expect(useBadData).toThrow();
+      expect(useBadData).toThrowMatching(e => e.name === `MultiLangStringDataError`);
     });
 
     it(`Error: bad language tag`, () => {
       const useBadLanguageTag = () => new MultiLangString({ 'eng.1': 'Hello world!' });
-      expect(useBadLanguageTag).toThrow();
+      expect(useBadLanguageTag).toThrowMatching(e => e.name === `LanguageTagError`);
     });
 
     it(`Error: bad string`, () => {
       const useBadString = () => new MultiLangString({ eng: 42 });
-      expect(useBadString).toThrow();
+      expect(useBadString).toThrowMatching(e => e.name === `MultiLangStringError`);
     });
 
   });
@@ -81,13 +81,13 @@ describe(modelName, () => {
     it(`Error: set bad language tag`, () => {
       const mls = new MultiLangString(data);
       const setBadLanguageTag = () => mls.set(`Tlahuapa Mixtec`, `ayoo`);
-      expect(setBadLanguageTag).toThrow();
+      expect(setBadLanguageTag).toThrowMatching(e => e.name === `LanguageTagError`);
     });
 
     it(`Error: set bad string`, () => {
       const mls = new MultiLangString(data);
       const setBadString = () => mls.set(`mix`, true);
-      expect(setBadString).toThrow();
+      expect(setBadString).toThrowMatching(e => e.name === `MultiLangStringError`);
     });
 
   });

@@ -4,13 +4,37 @@
 
 import isLanguageTag from '../utilities/validate/isLanguageTag.js';
 
+const classTraps = {
+  construct(Target, args) {
+
+    const map = Reflect.construct(Target, args);
+
+    Object.defineProperty(map, `set`, {
+      configurable: true,
+      enumerable:   false,
+      get() {
+        return function(key, val) { // eslint-disable-line func-names
+          validateLanguageTag(key);
+          validateString(val);
+          return map.set.apply(this, [key, val]); // eslint-disable-line no-invalid-this
+        };
+      },
+    });
+
+    return map;
+
+  },
+};
+
 /**
  * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
  * @param {Any} input The input to validate
  */
 function validateLanguageTag(input) {
   if (!isLanguageTag(input)) {
-    throw new Error(`Each language key must be a valid IETF language tag.`);
+    const e = new TypeError(`Each language key must be a valid IETF language tag.`);
+    e.name = `LanguageTagError`;
+    throw e;
   }
 }
 
@@ -20,7 +44,9 @@ function validateLanguageTag(input) {
  */
 function validateString(input) {
   if (typeof input !== `string`) {
-    throw new TypeError(`Each piece of data in a MultiLangString must be a String of text in a particular language.`);
+    const e = new TypeError(`Each piece of data in a MultiLangString must be a String of text in a particular language.`);
+    e.name = `MultiLangStringError`;
+    throw e;
   }
 }
 
@@ -50,7 +76,9 @@ class MultiLangString extends Map {
       typeof data === `string`
       || typeof data === `object`
     )) {
-      throw new Error(`The data passed to the MultiLangString constructor must be an Object or String.`);
+      const e = new TypeError(`The data passed to the MultiLangString constructor must be an Object or String.`);
+      e.name = `MultiLangStringDataError`;
+      throw e;
     }
 
     // STANDARDIZE DATA
@@ -72,4 +100,4 @@ class MultiLangString extends Map {
   }
 }
 
-export default MultiLangString;
+export default new Proxy(MultiLangString, classTraps);
