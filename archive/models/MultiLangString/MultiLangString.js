@@ -14,32 +14,10 @@ const validateString = string => {
   }
 };
 
-/**
- * A class representing text in one or more languages
- * @alias MultiLangString
- * @memberof dlx.module:models
- * @extends Map
-
- */
-class MultiLangString extends Map {
-  /**
-   * Create a new Multi-Language String
-   * @param {Object} [data] The data for this string, formatted as a [MultiLangString specification]{@link http://developer.digitallinguistics.io/spec/schemas/MultiLangString.html}
-   */
+export default class MultiLangString {
   constructor(data = {}) {
 
-    // VALIDATION
-    if (data instanceof Map) return data;
-
-    if (typeof data !== `object`) {
-      throw new TypeError(`The data passed to the MultiLangString constructor must be an object.`);
-    }
-
     Object.keys(data).forEach(validateKey);
-    Object.values(data).forEach(validateString);
-
-    // INSTANTIATION
-    super(Object.entries(data));
 
     // VALIDATION FOR SETTERS
     const handler = {
@@ -58,12 +36,4 @@ class MultiLangString extends Map {
 
   }
 
-  toJSON() {
-    const data = {};
-    Array.from(this.entries()).forEach(([key, val]) => { data[key] = val; });
-    return data;
-  }
-
 }
-
-module.exports = MultiLangString;

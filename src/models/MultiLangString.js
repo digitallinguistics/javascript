@@ -3,6 +3,16 @@
  */
 
 /**
+ * Validates a String for MultiLangStrings. Throws a type error if the input is not a String.
+ * @param  {Any} input The input to validate
+ */
+function validateString(input) {
+  if (typeof input !== `string`) {
+    throw new TypeError(`Each piece of data in a MultiLangString must be a String of text in a particular language.`);
+  }
+}
+
+/**
  * A class representing a Multi-Language Text / String
  * @extends Map
  *
@@ -22,7 +32,7 @@ class MultiLangString extends Map {
    */
   constructor(data = {}) {
 
-    // VALIDATION
+    // VALIDATE ARGUMENTS
 
     if (!(
       typeof data === `string`
@@ -31,13 +41,22 @@ class MultiLangString extends Map {
       throw new Error(`The data passed to the MultiLangString constructor must be an Object or String.`);
     }
 
-    // INSTANTIATION
+    // STANDARDIZE DATA
 
     /* eslint-disable no-param-reassign */
     if (data && typeof data === `string`) data = { eng: data };
     if (data instanceof Map) data = data.entries();
     else data = Object.entries(data);
     /* eslint-enable no-param-reassign */
+
+    // VALIDATE DATA
+
+    const rawData = Object.fromEntries(data);
+
+    // Object.keys(rawData).forEach(validateLanguageTag);
+    Object.values(rawData).forEach(validateString);
+
+    // INSTANTIATE MODEL
 
     super(data);
 
