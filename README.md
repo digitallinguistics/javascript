@@ -7,6 +7,7 @@ A JavaScript library for working with linguistic data in DLx format. For browser
 [![npm version](https://img.shields.io/npm/v/@digitallinguistics/javascript.svg)][npm]
 [![npm downloads](https://img.shields.io/npm/dt/@digitallinguistics/javascript.svg)][npm]
 [![GitHub issues](https://img.shields.io/github/issues/digitallinguistics/javascript.svg)][issues]
+[![GitHub test workflow status](https://github.com/digitallinguistics/javascript/workflows/tests/badge.svg)][tests]
 [![GitHub](https://img.shields.io/github/license/digitallinguistics/javascript.svg)][license]
 [![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/javascript.svg?style=social)][GitHub]
 
@@ -79,5 +80,6 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 [personal]:     https://danielhieber.com
 [question]:     https://github.com/digitallinguistics/javascript/issues/new?assignees=&labels=question&template=question.md&title=
 [releases]:     https://github.com/digitallinguistics/javascript/releases
-[website]:      https://digitallinguistics.io
+[tests]:        https://github.com/digitallinguistics/javascript/actions
 [webpack]:      https://webpack.js.org/
+[website]:      https://digitallinguistics.io
