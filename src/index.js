@@ -1,7 +1,2 @@
-import core   from './core/index.js';
-import models from './models/index.js';
-
-export {
-  core,
-  models,
-};
+export { default as core } from './core/index.js';
+export { default as models } from './models/index.js';
