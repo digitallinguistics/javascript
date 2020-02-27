@@ -15,11 +15,7 @@ class Language extends Model {
    * @param {Object} [data={}] The data to use for this Language object
    */
   constructor(data = {}) {
-
-    super();
-
-    Object.assign(this, data);
-
+    super(data);
   }
 
 }
