@@ -46,7 +46,7 @@ describe(`Language`, () => {
 
     });
 
-    fit(`Success: set good data`, () => {
+    it(`Success: set good data`, () => {
 
       const name = {
         eng: `Chitimacha`,
