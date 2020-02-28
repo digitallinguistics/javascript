@@ -22,31 +22,18 @@ describe(`Language`, () => {
       expect(lang.name).toBeInstanceOf(MultiLangString);
     });
 
-    describe(`Success: good data`, () => {
+    it(`Success: String`, () => {
 
-      it(`String`, () => {
-        const name = `Chitimacha`;
-        const lang = new Language({ name });
-        expect(lang.name.get(`eng`)).toBe(name);
-      });
+      const name = `Chitimacha`;
+      const lang = new Language;
 
-      it(`Object`, () => {
+      lang.name = name;
 
-        const name = {
-          eng: `Chitimacha`,
-          fra: `chitimacha`,
-        };
-
-        const lang = new Language({ name });
-
-        expect(lang.name.get(`eng`)).toBe(name.eng);
-        expect(lang.name.get(`fra`)).toBe(name.fra);
-
-      });
+      expect(lang.name.get(`eng`)).toBe(name);
 
     });
 
-    it(`Success: set good data`, () => {
+    it(`Success: Object`, () => {
 
       const name = {
         eng: `Chitimacha`,
@@ -62,9 +49,11 @@ describe(`Language`, () => {
 
     });
 
-    it(`Error: bad data`);
-
-    it(`Fail: set bad data`);
+    it(`Error: bad data`, () => {
+      const lang = new Language;
+      const setBadLang = () => { lang.name = false; };
+      expect(setBadLang).toThrowMatching(e => e.name === `MultiLangStringDataError`);
+    });
 
   });
 
