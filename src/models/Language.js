@@ -23,7 +23,7 @@ class Language extends Model {
   }
 
   /**
-   * The name of this language, as a MultiLangString Map object
+   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
    * @type {Map}
    */
   get name() {
