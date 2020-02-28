@@ -3,10 +3,6 @@
  * @namespace core
  */
 
-import Model     from './Model.js';
-import utilities from './utilities/index.js';
+import Model from './Model.js';
 
-export default {
-  Model,
-  utilities,
-};
+export default { Model };
