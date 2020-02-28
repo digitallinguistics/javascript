@@ -55,7 +55,7 @@ function validateString(input) {
 }
 
 /**
- * A class representing a Multi-Language Text / String
+ * A class representing a Multi-Language Text / String, as a JavaScript Map Object. See the [DLx Data Format]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html} for information about formatting Multi-Language Strings.
  * @memberof models
  * @extends Map
  *
