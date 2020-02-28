@@ -2,7 +2,7 @@ import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 
 /**
- * A class representing a [DLx Language Object]{@link https://format.digitallinguistics.io/schemas/Language.html}
+ * A class representing a language, formatted according to the [DLx Data Format for a language]{@link https://format.digitallinguistics.io/schemas/Language.html}
  * @memberof models
  * @extends Model
  */
