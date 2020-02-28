@@ -30,6 +30,27 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="core.html">core</a></li><li><a href="models.html">models</a></li><li><a href="utilities.html">utilities</a></li><li><a href="utilities.regexp.html">utilities.regexp</a></li><li><a href="utilities.validate.html">utilities.validate</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="models.module_MultiLangString.html">models.MultiLangString</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="core.Model.html">core.Model</a></li><li><a href="models.Language.html">models.Language</a></li><li><a href="models.MultiLangString.html">models.MultiLangString</a></li>
+				</ul>
+			</li>
+			
 		</ul>
         
             <div class="col-sm-3 col-md-3">
@@ -80,18 +101,23 @@
 
     <section class="readme-section">
         <article><h1>DLx JavaScript Library</h1>
-<p>A JavaScript library for working with linguistic data in DLx format. For browser and Node.</p>
+<p>A JavaScript library for working with linguistic data in <a href="https://format.digitallinguistics.io">DLx format</a>. For browser and Node.</p>
 <p><a href="https://digitallinguistics.io">Digital Linguistics</a> (DLx) is the science of the digital data management of linguistic data, of the kind typically produced during language documentation projects. This repository contains a JavaScript library for working with linguistic data in the <a href="https://format.digitallinguistics.io">Data Format for Digital Linguistics</a> (Daffodil). It includes models for various linguistic objects, useful data and constants, and other utilities for working with language data.</p>
 <p><a href="https://www.npmjs.com/package/@digitallinguistics/javascript"><img src="https://img.shields.io/npm/v/@digitallinguistics/javascript.svg" alt="npm version"></a>
 <a href="https://www.npmjs.com/package/@digitallinguistics/javascript"><img src="https://img.shields.io/npm/dt/@digitallinguistics/javascript.svg" alt="npm downloads"></a>
 <a href="https://github.com/digitallinguistics/javascript/issues"><img src="https://img.shields.io/github/issues/digitallinguistics/javascript.svg" alt="GitHub issues"></a>
+<a href="https://github.com/digitallinguistics/javascript/actions"><img src="https://github.com/digitallinguistics/javascript/workflows/tests/badge.svg" alt="GitHub test workflow status"></a>
+<a href="https://zenodo.org/badge/latestdoi/180070191"><img src="https://zenodo.org/badge/180070191.svg" alt="Zenodo DOI"></a>
 <a href="https://github.com/digitallinguistics/javascript/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/digitallinguistics/javascript.svg" alt="GitHub"></a>
 <a href="https://github.com/digitallinguistics/javascript"><img src="https://img.shields.io/github/stars/digitallinguistics/javascript.svg?style=social" alt="GitHub stars"></a></p>
 <p><a href="https://developer.digitallinguistics.io/javascript">View the API documentation for this library.</a></p>
-<p>Maintained by <a href="https://danielhieber.com">Daniel W. Hieber</a> (University of California, Santa Barbara).</p>
+<p>Maintained by <a href="https://danielhieber.com">Daniel W. Hieber</a> (University of California, Santa Barbara). Please cite this library using the following model:</p>
+<blockquote>
+<p>Hieber, Daniel W. 2020. @digitallinguistics/javascript. DOI:<a href="https://zenodo.org/badge/latestdoi/180070191">10.5281/zenodo.597714</a>.</p>
+</blockquote>
 <h2>Contents</h2>
 <ul>
-<li><a href="#getting-help--contributing">Contributing</a></li>
+<li><a href="#getting-help--contributing">Getting Help &amp; Contributing</a></li>
 <li><a href="#usage">Usage</a></li>
 <li><a href="https://developer.digitallinguistics.io/javascript">API Documentation</a></li>
 </ul>
@@ -110,6 +136,30 @@
 <p>Want to contribute code to the project? <a href="https://github.com/digitallinguistics/javascript/blob/master/.github/CONTRIBUTING.md">Check out the contributing guidelines.</a></p>
 </li>
 </ul>
+<h2>Overview</h2>
+<p>The DLx JavaScript library has the following exports. See the <a href="https://developer.digitallinguistics.io/javascript">API documentation</a> for complete details on the contents of this library.</p>
+<table>
+<thead>
+<tr>
+<th>Export</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>core</code></td>
+<td>Base classes and other code reused across this library. Most users will not need to use this module.</td>
+</tr>
+<tr>
+<td><code>models</code></td>
+<td>A collection of objects representing common linguistic objects, such as <code>Language</code>, <code>Lexeme</code>, etc. These have various utility functions attached to them, and ensure that their data is valid according to the <a href="https://format.digitallinguistics.io">DLx Data Format</a>.</td>
+</tr>
+<tr>
+<td><code>utilities</code></td>
+<td>Assorted utilities for working with data in DLx format</td>
+</tr>
+</tbody>
+</table>
 <h2>Usage</h2>
 <ol>
 <li>
@@ -193,7 +243,7 @@ const lexeme = new Lexeme({/* lexeme data */})
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
-		on 2020-02-25T16:35:47-06:00
+		on 2020-02-28T01:37:22+00:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
