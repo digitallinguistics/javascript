@@ -1,5 +1,5 @@
 /**
- * A base Model class
+ * A base Model class. Most other models are instances of this base Model.
  * @memberof core
  */
 class Model {

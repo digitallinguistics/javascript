@@ -1,4 +1,5 @@
 /**
+ * Assorted utilities for working with data in DLx format
  * @namespace utilities
  */
 
