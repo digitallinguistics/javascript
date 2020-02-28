@@ -38,9 +38,11 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 The DLx JavaScript library has the following exports. See the [API documentation][docs] for complete details on the contents of this library.
 
-Export   | Description
--------- | -----------
-`models` | A collection of objects representing common linguistic objects, such as `Language`, `Lexeme`, etc. These have various utility functions attached to them, and ensure that their data is valid according to the [DLx Data Format][Daffodil].
+Export      | Description
+----------- | -----------
+`core`      | Base classes and other code reused across this library. Most users will not need to use this module.
+`models`    | A collection of objects representing common linguistic objects, such as `Language`, `Lexeme`, etc. These have various utility functions attached to them, and ensure that their data is valid according to the [DLx Data Format][Daffodil].
+`utilities` | Assorted utilities for working with data in DLx format
 
 ## Usage
 
