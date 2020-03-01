@@ -16,7 +16,7 @@ class Language extends Model {
    */
   constructor(data = {}) {
 
-    super();
+    super(data);
 
     this.name = new MultiLangString(data.name);
 
