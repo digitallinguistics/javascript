@@ -103,6 +103,11 @@ class MultiLangString extends Map {
     super(Object.entries(data));
 
   }
+
+  toJSON() {
+    return Object.fromEntries(this);
+  }
+
 }
 
 export default new Proxy(MultiLangString, classTraps);

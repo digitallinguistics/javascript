@@ -9,6 +9,8 @@ const {
 
 const modelName = `MultiLangString`;
 
+const sampleData = { eng: 'Hello world!', spa: 'Hola mundo!' };
+
 describe(modelName, () => {
 
   it(`class: MultiLangString`, () => {
@@ -70,25 +72,33 @@ describe(modelName, () => {
 
   describe(`MultiLangString.prototype.{language}`, () => {
 
-    const data = { eng: 'Hello world!', spa: 'Hola mundo!' };
-
     it(`Instantiation`, () => {
-      const mls = new MultiLangString(data);
-      expect(mls.get(`eng`)).toBe(data.eng);
-      expect(mls.get(`spa`)).toBe(data.spa);
+      const mls = new MultiLangString(sampleData);
+      expect(mls.get(`eng`)).toBe(sampleData.eng);
+      expect(mls.get(`spa`)).toBe(sampleData.spa);
     });
 
     it(`Error: set bad language tag`, () => {
-      const mls = new MultiLangString(data);
+      const mls = new MultiLangString(sampleData);
       const setBadLanguageTag = () => mls.set(`Tlahuapa Mixtec`, `ayoo`);
       expect(setBadLanguageTag).toThrowMatching(e => e.name === `LanguageTagError`);
     });
 
     it(`Error: set bad string`, () => {
-      const mls = new MultiLangString(data);
+      const mls = new MultiLangString(sampleData);
       const setBadString = () => mls.set(`mix`, true);
       expect(setBadString).toThrowMatching(e => e.name === `MultiLangStringError`);
     });
+
+  });
+
+  it(`MultiLangString.prototype.toJSON()`, () => {
+
+    const mls  = new MultiLangString(sampleData);
+    const pojo = JSON.parse(JSON.stringify(mls));
+
+    Object.keys(sampleData)
+    .forEach(key => expect(pojo[key]).toBe(sampleData[key]));
 
   });
 

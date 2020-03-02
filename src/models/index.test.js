@@ -16,12 +16,4 @@ describe(`models`, () => {
     expect(Language.name).toBe(`Language`);
   });
 
-  it(`have a .toJSON() method`, () => {
-
-    Object.keys(models).forEach(model => {
-      expect(model.toJSON).toBeInstanceOf(Function);
-    });
-
-  });
-
 });
