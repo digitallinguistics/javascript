@@ -1,13 +1,13 @@
+/* eslint-disable
+  max-nested-callbacks,
+*/
+
 const { models } = require(`../../test`);
 
 const {
   MultiLangString,
   Language,
 } = models;
-
-/**
- * Check that the models module has the expected exports
- */
 
 describe(`models`, () => {
 
