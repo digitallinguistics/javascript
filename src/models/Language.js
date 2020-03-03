@@ -4,10 +4,15 @@ import MultiLangString from './MultiLangString.js';
 /**
  * A class representing a language, formatted according to the [DLx Data Format for a language]{@link https://format.digitallinguistics.io/schemas/Language.html}
  * @memberof models
- * @extends Model
+ * @extends core.Model
  */
 class Language extends Model {
 
+  /**
+   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
+   * @name models.Language#name
+   * @type {Map}
+   */
   #name;
 
   /**
@@ -18,20 +23,19 @@ class Language extends Model {
 
     super(data);
 
-    this.name = new MultiLangString(data.name);
+    this.#name = new MultiLangString(data.name);
 
-  }
+    Object.defineProperty(this, `name`, {
+      configurable: true,
+      enumerable:   true,
+      get() {
+        return this.#name;
+      },
+      set(val) {
+        this.#name = new MultiLangString(val);
+      },
+    });
 
-  /**
-   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
-   * @type {Map}
-   */
-  get name() {
-    return this.#name;
-  }
-
-  set name(val) {
-    this.#name = new MultiLangString(val);
   }
 
 }

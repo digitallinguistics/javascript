@@ -22,6 +22,11 @@ describe(`Language`, () => {
       expect(lang.name).toBeInstanceOf(MultiLangString);
     });
 
+    it(`enumerable`, () => {
+      const lang = new Language({ name: 'Chitimacha' });
+      expect(Object.keys(lang)).toContain(`name`);
+    });
+
     it(`Success: String`, () => {
 
       const name = `Chitimacha`;
