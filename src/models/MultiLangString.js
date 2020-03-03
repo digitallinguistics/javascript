@@ -5,32 +5,6 @@
 import isLanguageTag from '../utilities/validate/isLanguageTag.js';
 
 /**
- * Proxy traps for the MultiLangString class
- * @type {Object}
- */
-const classTraps = {
-  construct(Target, args) {
-
-    const map = Reflect.construct(Target, args);
-
-    Object.defineProperty(map, `set`, {
-      configurable: true,
-      enumerable:   false,
-      get() {
-        return function(key, val) { // eslint-disable-line func-names
-          validateLanguageTag(key);
-          validateString(val);
-          return map.set.apply(this, [key, val]); // eslint-disable-line no-invalid-this
-        };
-      },
-    });
-
-    return map;
-
-  },
-};
-
-/**
  * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
  * @param {Any} input The input to validate
  */
@@ -104,10 +78,16 @@ class MultiLangString extends Map {
 
   }
 
+  set(key, val) {
+    validateLanguageTag(key);
+    validateString(val);
+    return super.set(key, val);
+  }
+
   toJSON() {
     return Object.fromEntries(this);
   }
 
 }
 
-export default new Proxy(MultiLangString, classTraps);
+export default MultiLangString;
