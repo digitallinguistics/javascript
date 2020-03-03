@@ -8,6 +8,10 @@ import MultiLangString from './MultiLangString.js';
  */
 class Language extends Model {
 
+  /**
+   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
+   * @type {Map}
+   */
   #name;
 
   /**
@@ -18,20 +22,19 @@ class Language extends Model {
 
     super(data);
 
-    this.name = new MultiLangString(data.name);
+    this.#name = new MultiLangString(data.name);
 
-  }
+    Object.defineProperty(this, `name`, {
+      configurable: true,
+      enumerable:   true,
+      get() {
+        return this.#name;
+      },
+      set(val) {
+        this.#name = new MultiLangString(val);
+      },
+    });
 
-  /**
-   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
-   * @type {Map}
-   */
-  get name() {
-    return this.#name;
-  }
-
-  set name(val) {
-    this.#name = new MultiLangString(val);
   }
 
 }
