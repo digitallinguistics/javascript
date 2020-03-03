@@ -92,6 +92,12 @@ describe(modelName, () => {
 
   });
 
+  it(`MultiLangString.prototype.set()`, () => {
+    const mls = new MultiLangString;
+    const setData = () => mls.set(`hello`, `world`);
+    expect(setData).not.toThrow();
+  });
+
   it(`MultiLangString.prototype.toJSON()`, () => {
 
     const mls  = new MultiLangString(sampleData);
