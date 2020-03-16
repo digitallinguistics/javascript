@@ -1,5 +1,22 @@
+/**
+ * @module models.Language
+ */
+
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+import isISOCode from '../utilities/validate/isISO.js';
+
+/**
+ * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
+ * @param {Any} input The input to validate
+ */
+function validateISOCode(input) {
+  if (!isISOCode(input)) {
+    const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
+    e.name = `ISOCodeError`;
+    throw e;
+  }
+}
 
 /**
  * A class representing a language, formatted according to the [DLx Data Format for a language]{@link https://format.digitallinguistics.io/schemas/Language.html}
@@ -14,6 +31,13 @@ class Language extends Model {
    * @type {Map}
    */
   #name;
+
+  /**
+  * The ISO 639-3 Code for this Language.
+  * @name models.Language#iso
+  * @type {string}
+  */
+  #iso;
 
   /**
    * Create a new Language
@@ -34,6 +58,18 @@ class Language extends Model {
       set(val) {
         this.#name = new MultiLangString(val);
       },
+    });
+
+    Object.defineProperty(this, `iso`, {
+      get() {
+        return this.#iso;
+      },
+      set(val) {
+        this.#iso = new String(val);
+        // VALIDATE DATA
+        validateISOCode(this.#iso);
+      }
+
     });
 
   }
