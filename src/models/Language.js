@@ -2,9 +2,9 @@
  * @module models.Language
  */
 
+import isISOCode       from '../utilities/validate/isISO.js';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
-import isISOCode        from '../utilities/validate/isISO.js';
 
 /**
  * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
@@ -49,6 +49,18 @@ class Language extends Model {
 
     Object.defineProperties(this, {
 
+      iso: {
+        configurable: true,
+        enumerable:   true,
+        get() {
+          return this.#iso;
+        },
+        set(val) {
+          validateISOCode(val);
+          this.#iso = new String(val); // eslint-disable-line no-new-wrappers
+        },
+      },
+
       name: {
         configurable: true,
         enumerable:   true,
@@ -60,17 +72,6 @@ class Language extends Model {
         },
       },
 
-      iso: {
-        configurable: true,
-        enumerable:   true,
-        get() {
-          return this.#iso;
-        },
-        set(val) {
-          validateISOCode(val);
-          this.#iso = new String(val);
-        },
-      }
     });
 
     this.name = data.name;
