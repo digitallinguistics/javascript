@@ -4,5 +4,6 @@
  */
 
 import isLanguageTag from './isLanguageTag.js';
+import isISOCode from './isISO.js';
 
-export default { isLanguageTag };
+export default { isLanguageTag, isISOCode };
