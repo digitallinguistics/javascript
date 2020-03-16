@@ -67,15 +67,14 @@ class Language extends Model {
           return this.#iso;
         },
         set(val) {
+          validateISOCode(val);
           this.#iso = new String(val);
-          // VALIDATE DATA
-          validateISOCode(this.#iso);
         },
       }
     });
 
     this.name = data.name;
-    if ('iso' in data) this.iso = data.iso;
+    if (`iso` in data) this.iso = data.iso;
 
   }
 
