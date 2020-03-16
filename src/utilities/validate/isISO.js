@@ -1,4 +1,4 @@
-import isoCodeRegExp from '../regexp/languageTag.js';
+import isoCodeRegExp from '../regexp/ISO.js';
 
 /**
  * Checks whether the input is a valid ISO 639-3 language code.
