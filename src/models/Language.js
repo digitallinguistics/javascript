@@ -4,7 +4,7 @@
 
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
-import isISOCode from '../utilities/validate/isISO.js';
+import isISOCode        from '../utilities/validate/isISO.js';
 
 /**
  * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
