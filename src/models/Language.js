@@ -47,29 +47,35 @@ class Language extends Model {
 
     super(data);
 
-    Object.defineProperty(this, `name`, {
-      configurable: true,
-      enumerable:   true,
-      get() {
-        return this.#name;
+    Object.defineProperties(this, {
+
+      name: {
+        configurable: true,
+        enumerable:   true,
+        get() {
+          return this.#name;
+        },
+        set(val) {
+          this.#name = new MultiLangString(val);
+        },
       },
-      set(val) {
-        this.#name = new MultiLangString(val);
-      },
+
+      iso: {
+        configurable: true,
+        enumerable:   true,
+        get() {
+          return this.#iso;
+        },
+        set(val) {
+          this.#iso = new String(val);
+          // VALIDATE DATA
+          validateISOCode(this.#iso);
+        },
+      }
     });
 
     this.name = data.name;
-
-    Object.defineProperty(this, `iso`, {
-      get() {
-        return this.#iso;
-      },
-      set(val) {
-        this.#iso = new String(val);
-        // VALIDATE DATA
-        validateISOCode(this.#iso);
-      },
-    });
+    if ('iso' in data) this.iso = data.iso;
 
   }
 
