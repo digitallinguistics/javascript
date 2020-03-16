@@ -47,8 +47,6 @@ class Language extends Model {
 
     super(data);
 
-    this.#name = new MultiLangString(data.name);
-
     Object.defineProperty(this, `name`, {
       configurable: true,
       enumerable:   true,
@@ -60,6 +58,8 @@ class Language extends Model {
       },
     });
 
+    this.name = data.name;
+
     Object.defineProperty(this, `iso`, {
       get() {
         return this.#iso;
@@ -68,8 +68,7 @@ class Language extends Model {
         this.#iso = new String(val);
         // VALIDATE DATA
         validateISOCode(this.#iso);
-      }
-
+      },
     });
 
   }
