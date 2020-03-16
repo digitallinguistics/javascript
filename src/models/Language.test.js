@@ -62,4 +62,10 @@ describe(`Language`, () => {
 
   });
 
+  const lang = new Language;
+  it(`Language.prototype.iso`, function() {
+    expect(() => { lang.iso = `ctm`; }).not.toThrow();
+    expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
+  });
+
 });

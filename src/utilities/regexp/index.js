@@ -4,5 +4,6 @@
  */
 
 import languageTagRegExp from './languageTag.js';
+import isoCodeRegExp from './ISO.js';
 
-export default { languageTagRegExp };
+export default { languageTagRegExp, isoCodeRegExp };
