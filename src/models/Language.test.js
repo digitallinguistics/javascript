@@ -66,7 +66,7 @@ describe(`Language`, () => {
     const lang = new Language();
     it(`Language.prototype.iso`, function() {
       expect(() => { lang.iso = `ctm`; }).not.toThrow();
-      expect(() => { lang.iso = `en`; }).toThrow();//e => e.name === `ISOCodeError`);
+      expect(() => { lang.iso = `en`; }).toThrow(e => e.name === `ISOCodeError`);
     });
 
   });
