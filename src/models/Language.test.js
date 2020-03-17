@@ -68,4 +68,9 @@ describe(`Language`, () => {
     expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
   });
 
+  it(`Language.prototype.abbreviation`, function() {
+    expect(() => { lang.abbreviation = `ctm`; }).not.toThrow();
+    expect(() => { lang.abbreviation = `en!`; }).toThrowMatching(e => e.name === `AbbreviationError`);
+  });
+
 });
