@@ -70,6 +70,8 @@ class Language extends Model {
 
     super(data);
 
+    // Property Definitions
+
     Object.defineProperties(this, {
 
       glottolog: {
@@ -108,6 +110,8 @@ class Language extends Model {
       },
 
     });
+
+    // Initialization
 
     this.name = data.name;
     if (`glottolog` in data) this.glottolog = data.glottolog;
