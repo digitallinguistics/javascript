@@ -83,8 +83,8 @@ class Language extends Model {
    * Create a new Language
    * @param {Object}            [data={}]           The data to use for this Language object. Data should be formatted according to the [DLx Data Format's guidelines for Language data]{@link https://format.digitallinguistics.io/schemas/Language.html}.
    * @param {String}            [data.abbreviation] An abbreviation for this Language. Must be a valid DLx Abbreviation string.
-   * @param {String}            [data.glottolog]    The Glottolog Code for this language
-   * @param {String}            [data.iso]          The ISO 639-3 code for this language
+   * @param {String}            [data.glottolog]    The Glottolog Code for this language.
+   * @param {String}            [data.iso]          The ISO 639-3 code for this language.
    * @param {Map|Object|String} [data.name]         The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
    */
   constructor(data = {}) {

@@ -1,6 +1,6 @@
 /**
- * Validation methods for various types of linguistic data and formats
- * @namespace utilities.validate
+ * Type-checking methods for various kinds of linguistic data and formats
+ * @namespace utilities.types
  */
 
 import isAbbreviation from './isAbbreviation.js';

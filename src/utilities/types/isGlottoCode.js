@@ -2,7 +2,7 @@ import glottoCodeRegExp from '../regexp/Glottolog.js';
 
 /**
  * Checks whether the input is a valid Glottolog language code.
- * @memberof utilities.validate
+ * @memberof utilities.types
  * @instance
  * @param  {Any}     input The input to check
  * @return {Boolean}
