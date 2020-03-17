@@ -9,6 +9,18 @@ import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 
 /**
+ * Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.
+ * @param {Any} input The input to validate
+ */
+function validateAbbreviation(input) {
+  if (!isAbbreviation(input)) {
+    const e = new TypeError(`The language abbreviation must be a valid DLx Abbreviation string.`);
+    e.name = `AbbreviationError`;
+    throw e;
+  }
+}
+
+/**
  * Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.
  * @param {Any} input The input to validate
  */
@@ -28,18 +40,6 @@ function validateISOCode(input) {
   if (!isISOCode(input)) {
     const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
     e.name = `ISOCodeError`;
-    throw e;
-  }
-}
-
-/**
- * Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.
- * @param {Any} input The input to validate
- */
-function validateAbbreviation(input) {
-  if (!isAbbreviation(input)) {
-    const e = new TypeError(`The language abbreviation must be a valid DLx Abbreviation string.`);
-    e.name = `AbbreviationError`;
     throw e;
   }
 }
@@ -106,7 +106,7 @@ class Language extends Model {
           this.#abbreviation = new String(val);
         },
       },
-      
+
       glottolog: {
         configurable: true,
         enumerable:   true,
