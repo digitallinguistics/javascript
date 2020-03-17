@@ -14,7 +14,7 @@ import MultiLangString from './MultiLangString.js';
  */
 function validateAbbreviation(input) {
   if (!isAbbreviation(input)) {
-    const e = new TypeError(`The language abbreviation must be a valid DLx Abbreviation string.`);
+    const e = new TypeError(`The language abbreviation may only consist of numbers and basic letters.`);
     e.name = `AbbreviationError`;
     throw e;
   }
