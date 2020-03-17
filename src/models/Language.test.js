@@ -15,8 +15,7 @@ describe(`Language`, () => {
     expect(Language.name).toBe(`Language`);
   });
 
-  // name property tests
-  describe(`Language.prototype.name`, () => {
+  describe(`name`, () => {
 
     it(`class: MultiLangString`, () => {
       const lang = new Language();
@@ -63,15 +62,14 @@ describe(`Language`, () => {
 
   });
 
-  // ISO 639-3 property test
-  const lang = new Language;
-  it(`Language.prototype.iso`, function() {
+  it(`ISO 639-3 code`, () => {
+    const lang = new Language;
     expect(() => { lang.iso = `ctm`; }).not.toThrow();
     expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
   });
 
-  // Glottolog Code property test
-  it(`Language.prototype.glottolog`, function() {
+  it(`Glottocode`, () => {
+    const lang = new Language;
     expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
     expect(() => { lang.glottolog = `stan129`; }).toThrowMatching(e => e.name === `GlottoCodeError`);
   });
