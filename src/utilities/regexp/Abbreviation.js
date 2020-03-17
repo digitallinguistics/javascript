@@ -4,6 +4,6 @@
  * @instance
  * @type {RegExp}
  */
-const abbreviationRegExp = /^[(a-z)|(A-Z)|(0-9)]$/u;
+const abbreviationRegExp = /^[(a-z)|(A-Z)|(0-9)]+$/u;
 
 export default abbreviationRegExp;
