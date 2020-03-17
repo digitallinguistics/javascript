@@ -1,5 +1,5 @@
 /**
- * A regular expression for language abbreviations.
+ * A regular expression for abbreviations
  * @memberof utilities.regexp
  * @instance
  * @type {RegExp}
