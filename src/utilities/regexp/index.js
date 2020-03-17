@@ -7,4 +7,8 @@ import glottoCodeRegExp  from './Glottolog.js';
 import isoCodeRegExp     from './ISO.js';
 import languageTagRegExp from './languageTag.js';
 
-export default { languageTagRegExp, isoCodeRegExp, glottoCodeRegExp };
+export default {
+  glottoCodeRegExp,
+  isoCodeRegExp,
+  languageTagRegExp,
+};
