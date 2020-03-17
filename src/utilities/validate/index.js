@@ -4,9 +4,9 @@
  */
 
 import isAbbreviation from './isAbbreviation.js';
-import isGlottoCode  from './isGlottoCode.js';
-import isISOCode     from './isISO.js';
-import isLanguageTag from './isLanguageTag.js';
+import isGlottoCode   from './isGlottoCode.js';
+import isISOCode      from './isISO.js';
+import isLanguageTag  from './isLanguageTag.js';
 
 export default {
   isAbbreviation,
