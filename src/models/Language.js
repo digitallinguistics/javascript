@@ -26,7 +26,7 @@ function validateAbbreviation(input) {
  */
 function validateGlottoCode(input) {
   if (!isGlottoCode(input)) {
-    const e = new TypeError(`The Glottolog code must be formatted as a String of 4 letters followed by 4 numbers.`);
+    const e = new TypeError(`The Glottolog code must be formatted as a string of 4 letters followed by 4 numbers.`);
     e.name = `GlottoCodeError`;
     throw e;
   }
@@ -38,7 +38,7 @@ function validateGlottoCode(input) {
  */
 function validateISOCode(input) {
   if (!isISOCode(input)) {
-    const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
+    const e = new TypeError(`The language ISO 639-3 Code must be a valid ISO code.`);
     e.name = `ISOCodeError`;
     throw e;
   }
