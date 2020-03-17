@@ -5,5 +5,6 @@
 
 import languageTagRegExp from './languageTag.js';
 import isoCodeRegExp from './ISO.js';
+import abbreviationRegExp from './Abbreviation.js';
 
-export default { languageTagRegExp, isoCodeRegExp };
+export default { languageTagRegExp, isoCodeRegExp, abbreviationRegExp };

@@ -5,5 +5,6 @@
 
 import isLanguageTag from './isLanguageTag.js';
 import isISOCode from './isISO.js';
+import isAbbreviation from './isAbbreviation.js';
 
-export default { isLanguageTag, isISOCode };
+export default { isLanguageTag, isISOCode, isAbbreviation };
