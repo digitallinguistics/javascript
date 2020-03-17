@@ -5,5 +5,6 @@
 
 import languageTagRegExp from './languageTag.js';
 import isoCodeRegExp from './ISO.js';
+import glottoCodeRegExp from './Glottolog.js';
 
-export default { languageTagRegExp, isoCodeRegExp };
+export default { languageTagRegExp, isoCodeRegExp, glottoCodeRegExp };
