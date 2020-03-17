@@ -3,11 +3,14 @@
  * @namespace utilities.regexp
  */
 
-import glottoCodeRegExp  from './Glottolog.js';
-import isoCodeRegExp     from './ISO.js';
-import languageTagRegExp from './languageTag.js';
+import abbreviationRegExp from './Abbreviation.js';
+import glottoCodeRegExp   from './Glottolog.js';
+import isoCodeRegExp      from './ISO.js';
+import languageTagRegExp  from './languageTag.js';
+
 
 export default {
+  abbreviationRegExp,
   glottoCodeRegExp,
   isoCodeRegExp,
   languageTagRegExp,

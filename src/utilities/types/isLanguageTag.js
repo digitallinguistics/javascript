@@ -2,7 +2,7 @@ import languageTagRegExp from '../regexp/languageTag.js';
 
 /**
  * Checks whether the input is a valid [IETF language tag]{@link https://www.w3.org/International/articles/language-tags/}.
- * @memberof utilities.validate
+ * @memberof utilities.types
  * @instance
  * @param  {Any}     input The input to check
  * @return {Boolean}

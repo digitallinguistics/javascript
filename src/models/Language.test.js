@@ -15,6 +15,12 @@ describe(`Language`, () => {
     expect(Language.name).toBe(`Language`);
   });
 
+  it(`Abbreviation`, () => {
+    const lang = new Language;
+    expect(() => { lang.abbreviation = `ctm`; }).not.toThrow();
+    expect(() => { lang.abbreviation = `en!`; }).toThrowMatching(e => e.name === `AbbreviationError`);
+  });
+  
   it(`Glottocode`, () => {
     const lang = new Language;
     expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
@@ -73,5 +79,5 @@ describe(`Language`, () => {
     });
 
   });
-
+  
 });

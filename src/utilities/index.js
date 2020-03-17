@@ -3,10 +3,10 @@
  * @namespace utilities
  */
 
-import regexp   from './regexp/index.js';
-import validate from './validate/index.js';
+import regexp from './regexp/index.js';
+import types  from './types/index.js';
 
 export default {
   regexp,
-  validate,
+  types,
 };

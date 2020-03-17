@@ -2,10 +2,23 @@
  * @module models.Language
  */
 
-import isGlottoCode    from '../utilities/validate/isGlottoCode.js';
-import isISOCode       from '../utilities/validate/isISO.js';
+import isAbbreviation  from '../utilities/types/isAbbreviation.js';
+import isGlottoCode    from '../utilities/types/isGlottoCode.js';
+import isISOCode       from '../utilities/types/isISO.js';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+
+/**
+ * Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.
+ * @param {Any} input The input to validate
+ */
+function validateAbbreviation(input) {
+  if (!isAbbreviation(input)) {
+    const e = new TypeError(`The language abbreviation may only consist of numbers and basic letters.`);
+    e.name = `AbbreviationError`;
+    throw e;
+  }
+}
 
 /**
  * Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.
@@ -13,7 +26,7 @@ import MultiLangString from './MultiLangString.js';
  */
 function validateGlottoCode(input) {
   if (!isGlottoCode(input)) {
-    const e = new TypeError(`The Glottolog code must be formatted as a String of 4 letters followed by 4 numbers.`);
+    const e = new TypeError(`The Glottolog code must be formatted as a string of 4 letters followed by 4 numbers.`);
     e.name = `GlottoCodeError`;
     throw e;
   }
@@ -25,7 +38,7 @@ function validateGlottoCode(input) {
  */
 function validateISOCode(input) {
   if (!isISOCode(input)) {
-    const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
+    const e = new TypeError(`The language ISO 639-3 Code must be a valid ISO code.`);
     e.name = `ISOCodeError`;
     throw e;
   }
@@ -39,11 +52,11 @@ function validateISOCode(input) {
 class Language extends Model {
 
   /**
-   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
-   * @name models.Language#name
-   * @type {Map}
-   */
-  #name;
+  * The Abbreviation for this Language.
+  * @name models.Language#abbreviation
+  * @type {string}
+  */
+  #abbreviation;
 
   /**
   * The ISO 639-3 Code for this Language.
@@ -60,11 +73,19 @@ class Language extends Model {
   #glottolog;
 
   /**
+   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
+   * @name models.Language#name
+   * @type {Map}
+   */
+  #name;
+
+  /**
    * Create a new Language
-   * @param {Object}            [data={}]        The data to use for this Language object. Data should be formatted according to the [DLx Data Format's guidelines for Language data]{@link https://format.digitallinguistics.io/schemas/Language.html}.
-   * @param {String}            [data.glottolog] The Glottolog Code for this language
-   * @param {String}            [data.iso]       The ISO 639-3 code for this language
-   * @param {Map|Object|String} [data.name]      The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
+   * @param {Object}            [data={}]           The data to use for this Language object. Data should be formatted according to the [DLx Data Format's guidelines for Language data]{@link https://format.digitallinguistics.io/schemas/Language.html}.
+   * @param {String}            [data.abbreviation] An abbreviation for this Language. Must be a valid DLx Abbreviation string.
+   * @param {String}            [data.glottolog]    The Glottolog Code for this language.
+   * @param {String}            [data.iso]          The ISO 639-3 code for this language.
+   * @param {Map|Object|String} [data.name]         The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
    */
   constructor(data = {}) {
 
@@ -73,6 +94,18 @@ class Language extends Model {
     // Property Definitions
 
     Object.defineProperties(this, {
+
+      abbreviation: {
+        configurable: true,
+        enumerable:   true,
+        get() {
+          return this.#abbreviation;
+        },
+        set(val) {
+          validateAbbreviation(val);
+          this.#abbreviation = new String(val);
+        },
+      },
 
       glottolog: {
         configurable: true,
@@ -114,8 +147,9 @@ class Language extends Model {
     // Initialization
 
     this.name = data.name;
-    if (`glottolog` in data) this.glottolog = data.glottolog;
-    if (`iso` in data) this.iso = data.iso;
+    if (`abbreviation` in data) this.abbreviation = data.abbreviation;
+    if (`glottolog` in data)    this.glottolog    = data.glottolog;
+    if (`iso` in data)          this.iso          = data.iso;
 
   }
 
