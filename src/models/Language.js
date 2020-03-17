@@ -52,13 +52,6 @@ function validateISOCode(input) {
 class Language extends Model {
 
   /**
-   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
-   * @name models.Language#name
-   * @type {Map}
-   */
-  #name;
-
-  /**
   * The Abbreviation for this Language.
   * @name models.Language#abbreviation
   * @type {string}
@@ -78,6 +71,13 @@ class Language extends Model {
   * @type {string}
   */
   #glottolog;
+
+  /**
+   * The name of this language, as a [MultiLangString]{@link models.MultiLangString}
+   * @name models.Language#name
+   * @type {Map}
+   */
+  #name;
 
   /**
    * Create a new Language
