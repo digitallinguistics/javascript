@@ -8,18 +8,6 @@ import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 
 /**
- * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
- * @param {Any} input The input to validate
- */
-function validateISOCode(input) {
-  if (!isISOCode(input)) {
-    const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
-    e.name = `ISOCodeError`;
-    throw e;
-  }
-}
-
-/**
  * Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.
  * @param {Any} input The input to validate
  */
@@ -27,6 +15,18 @@ function validateGlottoCode(input) {
   if (!isGlottoCode(input)) {
     const e = new TypeError(`The Glottolog code must be formatted as a String of 4 letters followed by 4 numbers.`);
     e.name = `GlottoCodeError`;
+    throw e;
+  }
+}
+
+/**
+ * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
+ * @param {Any} input The input to validate
+ */
+function validateISOCode(input) {
+  if (!isISOCode(input)) {
+    const e = new TypeError(`The language ISO 639-3 Code must be a vaild ISO code.`);
+    e.name = `ISOCodeError`;
     throw e;
   }
 }
