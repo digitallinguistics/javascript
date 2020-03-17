@@ -3,8 +3,8 @@
  * @namespace utilities.regexp
  */
 
-import languageTagRegExp from './languageTag.js';
-import isoCodeRegExp from './ISO.js';
 import glottoCodeRegExp from './Glottolog.js';
+import isoCodeRegExp from './ISO.js';
+import languageTagRegExp from './languageTag.js';
 
 export default { languageTagRegExp, isoCodeRegExp, glottoCodeRegExp };
