@@ -15,7 +15,19 @@ describe(`Language`, () => {
     expect(Language.name).toBe(`Language`);
   });
 
-  describe(`Language.prototype.name`, () => {
+  it(`Glottocode`, () => {
+    const lang = new Language;
+    expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
+    expect(() => { lang.glottolog = `stan129`; }).toThrowMatching(e => e.name === `GlottoCodeError`);
+  });
+
+  it(`ISO 639-3 code`, () => {
+    const lang = new Language;
+    expect(() => { lang.iso = `ctm`; }).not.toThrow();
+    expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
+  });
+
+  describe(`name`, () => {
 
     it(`class: MultiLangString`, () => {
       const lang = new Language();
@@ -60,12 +72,6 @@ describe(`Language`, () => {
       expect(setBadLang).toThrowMatching(e => e.name === `MultiLangStringDataError`);
     });
 
-  });
-
-  const lang = new Language;
-  it(`Language.prototype.iso`, function() {
-    expect(() => { lang.iso = `ctm`; }).not.toThrow();
-    expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
   });
 
 });

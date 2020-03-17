@@ -2,9 +2,22 @@
  * @module models.Language
  */
 
+import isGlottoCode    from '../utilities/validate/isGlottoCode.js';
 import isISOCode       from '../utilities/validate/isISO.js';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+
+/**
+ * Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.
+ * @param {Any} input The input to validate
+ */
+function validateGlottoCode(input) {
+  if (!isGlottoCode(input)) {
+    const e = new TypeError(`The Glottolog code must be formatted as a String of 4 letters followed by 4 numbers.`);
+    e.name = `GlottoCodeError`;
+    throw e;
+  }
+}
 
 /**
  * Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.
@@ -40,16 +53,38 @@ class Language extends Model {
   #iso;
 
   /**
+  * The Glottolog Code for this Language.
+  * @name models.Language#glottolog
+  * @type {string}
+  */
+  #glottolog;
+
+  /**
    * Create a new Language
-   * @param {Object}            [data={}]   The data to use for this Language object. Data should be formatted according to the [DLx Data Format's guidelines for Language data]{@link https://format.digitallinguistics.io/schemas/Language.html}.
-   * @param {String}            [data.iso]  The ISO 639-3 code for this language
-   * @param {Map|Object|String} [data.name] The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
+   * @param {Object}            [data={}]        The data to use for this Language object. Data should be formatted according to the [DLx Data Format's guidelines for Language data]{@link https://format.digitallinguistics.io/schemas/Language.html}.
+   * @param {String}            [data.glottolog] The Glottolog Code for this language
+   * @param {String}            [data.iso]       The ISO 639-3 code for this language
+   * @param {Map|Object|String} [data.name]      The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
    */
   constructor(data = {}) {
 
     super(data);
 
+    // Property Definitions
+
     Object.defineProperties(this, {
+
+      glottolog: {
+        configurable: true,
+        enumerable:   true,
+        get() {
+          return this.#glottolog;
+        },
+        set(val) {
+          validateGlottoCode(val);
+          this.#glottolog = new String(val);
+        },
+      },
 
       iso: {
         configurable: true,
@@ -59,7 +94,7 @@ class Language extends Model {
         },
         set(val) {
           validateISOCode(val);
-          this.#iso = new String(val); // eslint-disable-line no-new-wrappers
+          this.#iso = new String(val);
         },
       },
 
@@ -76,7 +111,10 @@ class Language extends Model {
 
     });
 
+    // Initialization
+
     this.name = data.name;
+    if (`glottolog` in data) this.glottolog = data.glottolog;
     if (`iso` in data) this.iso = data.iso;
 
   }

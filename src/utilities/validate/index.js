@@ -3,7 +3,12 @@
  * @namespace utilities.validate
  */
 
+import isGlottoCode  from './isGlottoCode.js';
+import isISOCode     from './isISO.js';
 import isLanguageTag from './isLanguageTag.js';
-import isISOCode from './isISO.js';
 
-export default { isLanguageTag, isISOCode };
+export default {
+  isGlottoCode,
+  isISOCode,
+  isLanguageTag,
+};
