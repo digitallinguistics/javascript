@@ -92,7 +92,7 @@ class Language extends Model {
         },
         set(val) {
           validateISOCode(val);
-          this.#iso = new String(val); // eslint-disable-line no-new-wrappers
+          this.#iso = new String(val);
         },
       },
 
