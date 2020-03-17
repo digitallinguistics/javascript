@@ -15,6 +15,7 @@ describe(`Language`, () => {
     expect(Language.name).toBe(`Language`);
   });
 
+  // name property tests
   describe(`Language.prototype.name`, () => {
 
     it(`class: MultiLangString`, () => {
@@ -62,10 +63,17 @@ describe(`Language`, () => {
 
   });
 
+  // ISO 639-3 property test
   const lang = new Language;
   it(`Language.prototype.iso`, function() {
     expect(() => { lang.iso = `ctm`; }).not.toThrow();
     expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
+  });
+
+  // Glottolog Code property test
+  it(`Language.prototype.glottolog`, function() {
+    expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
+    expect(() => { lang.glottolog = `stan129`; }).toThrowMatching(e => e.name === `GlottoCodeError`);
   });
 
 });
