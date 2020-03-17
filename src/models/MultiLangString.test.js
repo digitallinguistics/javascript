@@ -92,13 +92,13 @@ describe(modelName, () => {
 
   });
 
-  it(`MultiLangString.prototype.set()`, () => {
+  it(`MultiLangString.set()`, () => {
     const mls = new MultiLangString;
     const setData = () => mls.set(`hello`, `world`);
     expect(setData).not.toThrow();
   });
 
-  it(`MultiLangString.prototype.toJSON()`, () => {
+  it(`MultiLangString.toJSON()`, () => {
 
     const mls  = new MultiLangString(sampleData);
     const pojo = JSON.parse(JSON.stringify(mls));
@@ -108,7 +108,7 @@ describe(modelName, () => {
 
   });
 
-  it(`~~MultiLangString.prototype.type~~`, () => {
+  it(`~~MultiLangString.type~~`, () => {
     expect(new MultiLangString().type).toBeUndefined();
   });
 
