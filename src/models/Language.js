@@ -2,9 +2,9 @@
  * @module models.Language
  */
 
-import isAbbreviation  from '../utilities/validate/isAbbreviation.js';
-import isGlottoCode    from '../utilities/validate/isGlottoCode.js';
-import isISOCode       from '../utilities/validate/isISO.js';
+import isAbbreviation  from '../utilities/types/isAbbreviation.js';
+import isGlottoCode    from '../utilities/types/isGlottoCode.js';
+import isISOCode       from '../utilities/types/isISO.js';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 

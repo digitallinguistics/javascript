@@ -1,6 +1,6 @@
 const { utilities } = require(`../../test`);
 
-const { regexp, validate } = utilities;
+const { regexp, types } = utilities;
 
 /**
  * Check that the utilities module has the expected exports
@@ -12,8 +12,8 @@ describe(`utilities`, () => {
     expect(regexp).toBeInstanceOf(Object);
   });
 
-  it(`validate`, () => {
-    expect(validate).toBeInstanceOf(Object);
+  it(`types`, () => {
+    expect(types).toBeInstanceOf(Object);
   });
 
 });

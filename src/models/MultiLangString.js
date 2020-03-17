@@ -2,7 +2,7 @@
  * @module models.MultiLangString
  */
 
-import isLanguageTag from '../utilities/validate/isLanguageTag.js';
+import isLanguageTag from '../utilities/types/isLanguageTag.js';
 
 /**
  * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
