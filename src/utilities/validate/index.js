@@ -3,8 +3,14 @@
  * @namespace utilities.validate
  */
 
-import isLanguageTag from './isLanguageTag.js';
-import isISOCode from './isISO.js';
 import isAbbreviation from './isAbbreviation.js';
+import isGlottoCode  from './isGlottoCode.js';
+import isISOCode     from './isISO.js';
+import isLanguageTag from './isLanguageTag.js';
 
-export default { isLanguageTag, isISOCode, isAbbreviation };
+export default {
+  isAbbreviation,
+  isGlottoCode,
+  isISOCode,
+  isLanguageTag,
+};
