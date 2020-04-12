@@ -20,7 +20,13 @@ describe(`Language`, () => {
     expect(() => { lang.abbreviation = `ctm`; }).not.toThrow();
     expect(() => { lang.abbreviation = `en!`; }).toThrowMatching(e => e.name === `AbbreviationError`);
   });
-  
+
+  it(`Custom Property`, () => {
+    const lang = new Language;
+    expect(() => { lang.deleted = true; }).not.toThrow();
+    expect(lang.deleted).toBe(true);
+  });
+
   it(`Glottocode`, () => {
     const lang = new Language;
     expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
@@ -79,5 +85,5 @@ describe(`Language`, () => {
     });
 
   });
-  
+
 });
