@@ -146,10 +146,8 @@ class Language extends Model {
 
     // Initialization
 
+    Object.assign(this, data);
     this.name = data.name;
-    if (`abbreviation` in data) this.abbreviation = data.abbreviation;
-    if (`glottolog` in data)    this.glottolog    = data.glottolog;
-    if (`iso` in data)          this.iso          = data.iso;
 
   }
 
