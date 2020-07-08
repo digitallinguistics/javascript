@@ -11,10 +11,23 @@
     "language documentation",
     "documentary linguistics"
   ],
-  "main": "src/index.js",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./core": "./src/core/index.js",
+    "./core/": "./src/core/",
+    "./models": "./src/models/index.js",
+    "./models/": "./src/models/",
+    "./utilities": "./src/utilities/index.js",
+    "./utilities/": "./src/utilities/",
+    "./utilities/regexp": "./src/utilities/regexp/index.js",
+    "./utilities/regexp/": "./src/utilities/regexp/",
+    "./utilities/types": "./src/utilities/types/index.js",
+    "./utilities/types/": "./src/utilities/types/",
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "docs": "jsdoc -c build/jsdoc.json",
-    "gh-pages": "gh-pages -d docs -m \"Generate developer documentation\"",
+    "docs": "jsdoc -c jsdoc.json",
     "test": "jasmine --config=test/jasmine.json"
   },
   "repository": {
@@ -29,18 +42,18 @@
   "bugs": "https://github.com/digitallinguistics/javascript/issues",
   "homepage": "https://github.com/digitallinguistics/javascript#readme",
   "engines": {
-    "node": "13.x"
+    "node": "14.x"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.4.0",
     "esm": "^3.2.25",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^3.1.0",
     "ink-docstrap": "^1.3.2",
     "jasmine": "^3.5.0",
-    "jsdoc": "^3.6.3"
+    "jsdoc": "^3.6.4"
   }
 }

@@ -38,11 +38,13 @@ Maintained by [Daniel W. Hieber][personal] (University of California, Santa Barb
 
 The DLx JavaScript library has the following exports. See the [API documentation][docs] for complete details on the contents of this library.
 
-Export      | Description
------------ | -----------
-`core`      | Base classes and other code reused across this library. Most users will not need to use this module.
-`models`    | A collection of objects representing common linguistic objects, such as `Language`, `Lexeme`, etc. These have various utility functions attached to them, and ensure that their data is valid according to the [DLx Data Format][Daffodil].
-`utilities` | Assorted utilities for working with data in DLx format
+Export             | Description
+-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`core`             | Base classes and other code reused across this library. Most users will not need to use this module.
+`models`           | A collection of objects representing common linguistic objects, such as `Language`, `Lexeme`, etc. These have various utility functions attached to them, and ensure that their data is valid according to the [DLx Data Format][Daffodil].
+`utilities`        | Assorted utilities for working with data in DLx format
+`utilities/regexp` | Useful regular expressions (e.g. `languageTag.js`, `ISO.js`)
+`utilities/types`  | Type-checking methods (e.g. `isLanguageTag.js`, `isISO.js`)
 
 ## Usage
 
@@ -72,10 +74,11 @@ Export      | Description
   const lexeme = new Lexeme({/* lexeme data */})
   ```
 
-5. You can also import standalone submodules, rather than the entire library, by importing the `index.js` file for a module, or a particular file, directly:
+5. You can also import standalone submodules and files, rather than the entire library:
 
   ```js
-  import punctuation from './dlx/src/data/punctuation.js';
+  import types       from '@digitallinguistics/javascript/types';
+  import punctuation from '@digitallinguistics/javascript/models/Language.js';
   ```
 
 6. See the [API documentation][docs] for complete details on using the library.
