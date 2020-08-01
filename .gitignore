@@ -48,6 +48,10 @@ typings/
 # Optional REPL history
 .node_repl_history
 
+# OS generated files
+.DS_Store
+.DS_Store?
+
 # Output of 'npm pack'
 *.tgz
 
