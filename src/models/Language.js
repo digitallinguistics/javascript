@@ -102,6 +102,7 @@ class Language extends Model {
           return this.#abbreviation;
         },
         set(val) {
+          if (val === undefined) return;
           validateAbbreviation(val);
           this.#abbreviation = new String(val);
         },
@@ -114,6 +115,7 @@ class Language extends Model {
           return this.#glottolog;
         },
         set(val) {
+          if (val === undefined) return;
           validateGlottoCode(val);
           this.#glottolog = new String(val);
         },
@@ -126,6 +128,7 @@ class Language extends Model {
           return this.#iso;
         },
         set(val) {
+          if (val === undefined) return;
           validateISOCode(val);
           this.#iso = new String(val);
         },
