@@ -1,5 +1,7 @@
-import expect                      from 'expect.js';
+import chai                        from 'chai';
 import { core, models, utilities } from './index.js';
+
+const { expect } = chai;
 
 /**
  * Check that the DLx library has the expected exports

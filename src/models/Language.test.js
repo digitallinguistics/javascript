@@ -2,9 +2,10 @@
   max-nested-callbacks,
 */
 
-import expect from 'expect.js';
-
+import chai from 'chai';
 import { Language, MultiLangString } from './index.js';
+
+const { expect } = chai;
 
 describe(`Language`, () => {
 

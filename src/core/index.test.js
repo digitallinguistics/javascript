@@ -1,7 +1,8 @@
-import core   from './index.js';
-import expect from 'expect.js';
+import chai from 'chai';
+import core from './index.js';
 
-const { Model } = core;
+const { expect } = chai;
+const { Model }  = core;
 
 /**
  * Check that the core module has the expected exports

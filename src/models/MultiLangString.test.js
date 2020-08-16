@@ -2,9 +2,11 @@
   max-nested-callbacks,
 */
 
-import expect          from 'expect.js';
+import chai            from 'chai';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+
+const { expect } = chai;
 
 const modelName = `MultiLangString`;
 

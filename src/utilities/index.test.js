@@ -1,5 +1,7 @@
-import expect            from 'expect.js';
+import chai              from 'chai';
 import { regexp, types } from './index.js';
+
+const { expect } = chai;
 
 /**
  * Check that the utilities module has the expected exports

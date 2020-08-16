@@ -1,5 +1,7 @@
-import expect from 'expect.js';
-import Model  from './Model.js';
+import chai  from 'chai';
+import Model from './Model.js';
+
+const { expect } = chai;
 
 describe(`Model`, () => {
 
