@@ -5,13 +5,13 @@
 import chai                          from 'chai';
 import { Language, MultiLangString } from './index.js';
 
-const { expect } = chai;
+chai.should();
 
 describe(`models`, () => {
 
   it(`has the expected exports`, () => {
-    expect(MultiLangString.name).to.equal(`MultiLangString`);
-    expect(Language.name).to.equal(`Language`);
+    MultiLangString.name.should.equal(`MultiLangString`);
+    Language.name.should.equal(`Language`);
   });
 
 });

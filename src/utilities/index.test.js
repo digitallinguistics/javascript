@@ -1,7 +1,7 @@
 import chai              from 'chai';
 import { regexp, types } from './index.js';
 
-const { expect } = chai;
+const should = chai.should();
 
 /**
  * Check that the utilities module has the expected exports
@@ -10,11 +10,11 @@ const { expect } = chai;
 describe(`utilities`, () => {
 
   it(`regexp`, () => {
-    expect(regexp).not.to.be.undefined;
+    should.exist(regexp);
   });
 
   it(`types`, () => {
-    expect(types).not.to.be.undefined;
+    should.exist(types);
   });
 
 });

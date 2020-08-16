@@ -6,7 +6,7 @@ import chai            from 'chai';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 
-const { expect } = chai;
+const should = chai.should();
 
 const modelName = `MultiLangString`;
 
@@ -15,8 +15,8 @@ const sampleData = { eng: 'Hello world!', spa: 'Hola mundo!' };
 describe(modelName, () => {
 
   it(`class: MultiLangString`, () => {
-    expect(MultiLangString.name).to.equal(modelName);
-    expect(new MultiLangString).not.to.be.instanceOf(Model);
+    MultiLangString.name.should.equal(modelName);
+    (new MultiLangString).should.not.to.be.instanceOf(Model);
   });
 
   describe(`data`, () => {
@@ -24,49 +24,49 @@ describe(modelName, () => {
     it(`String`, () => {
       const data = `hello`;
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).to.equal(data);
+      mls.get(`eng`).should.equal(data);
     });
 
     it(`empty String`, () => {
       const mls = new MultiLangString(``);
-      expect(mls.size).to.equal(0);
+      mls.size.should.equal(0);
     });
 
     it(`Object`, () => {
       const data = { eng: `hello` };
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).to.equal(data.eng);
+      mls.get(`eng`).should.equal(data.eng);
     });
 
     it(`empty Object`, () => {
       const mls  = new MultiLangString({});
-      expect(mls.size).to.equal(0);
+      mls.size.should.equal(0);
     });
 
     it(`Map`, () => {
       const data = new Map([[`eng`, `hello`]]);
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).to.equal(data.get(`eng`));
+      mls.get(`eng`).should.equal(data.get(`eng`));
     });
 
     it(`empty Map`, () => {
       const mls = new MultiLangString(new Map);
-      expect(mls.size).to.equal(0);
+      mls.size.should.equal(0);
     });
 
     it(`Error: bad data`, () => {
       const useBadData = () => new MultiLangString(0);
-      expect(useBadData).to.throw().with.property(`name`, `MultiLangStringDataError`);
+      useBadData.should.throw().with.property(`name`, `MultiLangStringDataError`);
     });
 
     it(`Error: bad language tag`, () => {
       const useBadLanguageTag = () => new MultiLangString({ 'eng.1': 'Hello world!' });
-      expect(useBadLanguageTag).to.throw().with.property(`name`, `LanguageTagError`);
+      useBadLanguageTag.should.throw().with.property(`name`, `LanguageTagError`);
     });
 
     it(`Error: bad string`, () => {
       const useBadString = () => new MultiLangString({ eng: 42 });
-      expect(useBadString).to.throw().with.property(`name`, `MultiLangStringError`);
+      useBadString.should.throw().with.property(`name`, `MultiLangStringError`);
     });
 
   });
@@ -75,20 +75,20 @@ describe(modelName, () => {
 
     it(`Instantiation`, () => {
       const mls = new MultiLangString(sampleData);
-      expect(mls.get(`eng`)).to.equal(sampleData.eng);
-      expect(mls.get(`spa`)).to.equal(sampleData.spa);
+      mls.get(`eng`).should.equal(sampleData.eng);
+      mls.get(`spa`).should.equal(sampleData.spa);
     });
 
     it(`Error: set bad language tag`, () => {
       const mls = new MultiLangString(sampleData);
       const setBadLanguageTag = () => mls.set(`Tlahuapa Mixtec`, `ayoo`);
-      expect(setBadLanguageTag).to.throw().with.property(`name`, `LanguageTagError`);
+      setBadLanguageTag.should.throw().with.property(`name`, `LanguageTagError`);
     });
 
     it(`Error: set bad string`, () => {
       const mls = new MultiLangString(sampleData);
       const setBadString = () => mls.set(`mix`, true);
-      expect(setBadString).to.throw().with.property(`name`, `MultiLangStringError`);
+      setBadString.should.throw().with.property(`name`, `MultiLangStringError`);
     });
 
   });
@@ -96,7 +96,7 @@ describe(modelName, () => {
   it(`.set()`, () => {
     const mls = new MultiLangString;
     const setData = () => mls.set(`hello`, `world`);
-    expect(setData).not.to.throw();
+    setData.should.not.throw();
   });
 
   it(`.toJSON()`, () => {
@@ -105,12 +105,12 @@ describe(modelName, () => {
     const pojo = JSON.parse(JSON.stringify(mls));
 
     Object.keys(sampleData)
-    .forEach(key => expect(pojo[key]).to.equal(sampleData[key]));
+    .forEach(key => pojo[key].should.equal(sampleData[key]));
 
   });
 
   it(`.type (should not exist)`, () => {
-    expect(new MultiLangString().type).to.be.undefined;
+    should.not.exist(new MultiLangString().type);
   });
 
 });

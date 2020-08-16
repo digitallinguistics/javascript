@@ -1,7 +1,7 @@
 import chai                        from 'chai';
 import { core, models, utilities } from './index.js';
 
-const { expect } = chai;
+const should = chai.should();
 
 /**
  * Check that the DLx library has the expected exports
@@ -10,15 +10,15 @@ const { expect } = chai;
 describe(`dlx`, () => {
 
   it(`core`, () => {
-    expect(core).not.to.be.undefined;
+    should.exist(core);
   });
 
   it(`models`, () => {
-    expect(models).not.to.be.undefined;
+    should.exist(models);
   });
 
   it(`utilities`, () => {
-    expect(utilities).not.to.be.undefined;
+    should.exist(utilities);
   });
 
 });

@@ -1,12 +1,12 @@
 import chai  from 'chai';
 import Model from './Model.js';
 
-const { expect } = chai;
+chai.should();
 
 describe(`Model`, () => {
 
   it(`is the Model class`, () => {
-    expect(Model.name).to.equal(`Model`);
+    Model.name.should.equal(`Model`);
   });
 
 });
