@@ -5,6 +5,30 @@
 class Model {
 
   /**
+   * A utility function to define an array property on a class, which prevents the array from being overwritten. **NOTE:** _This method may only be called inside a class constructor. The private property (`#propName`) must also be defined on the class._
+   * @param  {Object} object   The object to define the property on
+   * @param  {String} propName The name of the property to define on the object
+   * @return {Object}          Returns the original object with the new property added
+   */
+  static defineArrayProp(object, propName) {
+
+    Object.defineProperty(object, propName, {
+      configurable: true,
+      enumerable:   true,
+      get() {
+        return this[`#${propName}`];
+      },
+      set(val) {
+        // TODO: use ??= here when Node supports it
+        this[`#${propName}`] = this[`#${propName}`] ?? [];
+        this[`#${propName}`].length = 0;
+        this[`#${propName}`].push(...val);
+      },
+    });
+
+  }
+
+  /**
    * A utility function to define a property on a class which must always be an instance of a certain class. **NOTE:** _This method may only be called inside a class constructor. The private property (`#propName`) must also be defined on the class._
    * @param {Object}   object    The object to define the property on
    * @param {String}   propName  The name of the property to define on the object

@@ -8,8 +8,8 @@ parserOptions:
 overrides:
   - files:
       - '*.test.js'
-      - '*.spec.js'
     rules:
+      max-classes-per-file: 'off'
       no-unused-expressions: 'off'
 env:
   browser: false

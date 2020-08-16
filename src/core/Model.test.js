@@ -5,13 +5,39 @@ chai.should();
 
 describe(`Model`, () => {
 
+  class TestModel {}
+
   it(`is the Model class`, () => {
     Model.name.should.equal(`Model`);
   });
 
-  it(`defineModelProp`, () => {
+  it(`defineArrayProp`, () => {
 
-    class TestModel {}
+    class TestObject {
+
+      #testProp;
+
+      constructor() {
+        Model.defineArrayProp(this, `testProp`);
+      }
+
+    }
+
+    const testObject = new TestObject;
+    const arr1       = [];
+    const arr2       = [`a`, `b`];
+
+    testObject.testProp = arr1;
+    testObject.testProp = arr2;
+
+    testObject.testProp.should.not.equal(arr1);
+    testObject.testProp.should.not.equal(arr2);
+    testObject.testProp[0].should.equal(`a`);
+    testObject.testProp[1].should.equal(`b`);
+
+  });
+
+  it(`defineModelProp`, () => {
 
     class TestObject {
 
