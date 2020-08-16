@@ -1,4 +1,5 @@
-const { core: { Model } } = require(`../../test`);
+import expect from 'expect.js';
+import Model  from './Model.js';
 
 describe(`Model`, () => {
 

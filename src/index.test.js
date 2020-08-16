@@ -1,4 +1,5 @@
-const { core, models, utilities } = require(`../test`);
+import expect                      from 'expect.js';
+import { core, models, utilities } from './index.js';
 
 /**
  * Check that the DLx library has the expected exports

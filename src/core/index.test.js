@@ -1,4 +1,5 @@
-const { core } = require(`../../test/index.js`);
+import core   from './index.js';
+import expect from 'expect.js';
 
 const { Model } = core;
 

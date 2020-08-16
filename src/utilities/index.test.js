@@ -1,6 +1,5 @@
-const { utilities } = require(`../../test`);
-
-const { regexp, types } = utilities;
+import expect            from 'expect.js';
+import { regexp, types } from './index.js';
 
 /**
  * Check that the utilities module has the expected exports

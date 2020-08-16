@@ -2,10 +2,9 @@
   max-nested-callbacks,
 */
 
-const {
-  core:   { Model },
-  models: { MultiLangString },
-} = require(`../../test`);
+import expect          from 'expect.js';
+import Model           from '../core/Model.js';
+import MultiLangString from './MultiLangString.js';
 
 const modelName = `MultiLangString`;
 

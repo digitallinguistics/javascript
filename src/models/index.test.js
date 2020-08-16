@@ -2,12 +2,8 @@
   max-nested-callbacks,
 */
 
-const { models } = require(`../../test`);
-
-const {
-  MultiLangString,
-  Language,
-} = models;
+import expect                        from 'expect.js';
+import { Language, MultiLangString } from './index.js';
 
 describe(`models`, () => {
 
