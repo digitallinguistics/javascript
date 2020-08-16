@@ -18,22 +18,18 @@ describe(`Model`, () => {
       #testProp;
 
       constructor() {
-        Model.defineArrayProp(this, `testProp`);
+        Model.defineArrayProp(this, `testProp`, TestModel);
       }
 
     }
 
     const testObject = new TestObject;
-    const arr1       = [];
-    const arr2       = [`a`, `b`];
+    const arr        = [`a`, `b`];
 
-    testObject.testProp = arr1;
-    testObject.testProp = arr2;
+    testObject.testProp = arr;
 
-    testObject.testProp.should.not.equal(arr1);
-    testObject.testProp.should.not.equal(arr2);
-    testObject.testProp[0].should.equal(`a`);
-    testObject.testProp[1].should.equal(`b`);
+    testObject.testProp.should.equal(arr);
+    testObject.testProp.forEach(item => item.should.be.instanceOf(TestModel));
 
   });
 
