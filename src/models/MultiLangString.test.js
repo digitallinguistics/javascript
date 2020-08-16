@@ -15,8 +15,8 @@ const sampleData = { eng: 'Hello world!', spa: 'Hola mundo!' };
 describe(modelName, () => {
 
   it(`class: MultiLangString`, () => {
-    expect(MultiLangString.name).toBe(modelName);
-    expect(new MultiLangString).not.toBeInstanceOf(Model);
+    expect(MultiLangString.name).to.equal(modelName);
+    expect(new MultiLangString).not.to.be.instanceOf(Model);
   });
 
   describe(`data`, () => {
@@ -24,49 +24,49 @@ describe(modelName, () => {
     it(`String`, () => {
       const data = `hello`;
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).toBe(data);
+      expect(mls.get(`eng`)).to.equal(data);
     });
 
     it(`empty String`, () => {
       const mls = new MultiLangString(``);
-      expect(mls.size).toBe(0);
+      expect(mls.size).to.equal(0);
     });
 
     it(`Object`, () => {
       const data = { eng: `hello` };
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).toBe(data.eng);
+      expect(mls.get(`eng`)).to.equal(data.eng);
     });
 
     it(`empty Object`, () => {
       const mls  = new MultiLangString({});
-      expect(mls.size).toBe(0);
+      expect(mls.size).to.equal(0);
     });
 
     it(`Map`, () => {
       const data = new Map([[`eng`, `hello`]]);
       const mls  = new MultiLangString(data);
-      expect(mls.get(`eng`)).toBe(data.get(`eng`));
+      expect(mls.get(`eng`)).to.equal(data.get(`eng`));
     });
 
     it(`empty Map`, () => {
       const mls = new MultiLangString(new Map);
-      expect(mls.size).toBe(0);
+      expect(mls.size).to.equal(0);
     });
 
     it(`Error: bad data`, () => {
       const useBadData = () => new MultiLangString(0);
-      expect(useBadData).toThrowMatching(e => e.name === `MultiLangStringDataError`);
+      expect(useBadData).to.throw().with.property(`name`, `MultiLangStringDataError`);
     });
 
     it(`Error: bad language tag`, () => {
       const useBadLanguageTag = () => new MultiLangString({ 'eng.1': 'Hello world!' });
-      expect(useBadLanguageTag).toThrowMatching(e => e.name === `LanguageTagError`);
+      expect(useBadLanguageTag).to.throw().with.property(`name`, `LanguageTagError`);
     });
 
     it(`Error: bad string`, () => {
       const useBadString = () => new MultiLangString({ eng: 42 });
-      expect(useBadString).toThrowMatching(e => e.name === `MultiLangStringError`);
+      expect(useBadString).to.throw().with.property(`name`, `MultiLangStringError`);
     });
 
   });
@@ -75,20 +75,20 @@ describe(modelName, () => {
 
     it(`Instantiation`, () => {
       const mls = new MultiLangString(sampleData);
-      expect(mls.get(`eng`)).toBe(sampleData.eng);
-      expect(mls.get(`spa`)).toBe(sampleData.spa);
+      expect(mls.get(`eng`)).to.equal(sampleData.eng);
+      expect(mls.get(`spa`)).to.equal(sampleData.spa);
     });
 
     it(`Error: set bad language tag`, () => {
       const mls = new MultiLangString(sampleData);
       const setBadLanguageTag = () => mls.set(`Tlahuapa Mixtec`, `ayoo`);
-      expect(setBadLanguageTag).toThrowMatching(e => e.name === `LanguageTagError`);
+      expect(setBadLanguageTag).to.throw().with.property(`name`, `LanguageTagError`);
     });
 
     it(`Error: set bad string`, () => {
       const mls = new MultiLangString(sampleData);
       const setBadString = () => mls.set(`mix`, true);
-      expect(setBadString).toThrowMatching(e => e.name === `MultiLangStringError`);
+      expect(setBadString).to.throw().with.property(`name`, `MultiLangStringError`);
     });
 
   });
@@ -96,7 +96,7 @@ describe(modelName, () => {
   it(`.set()`, () => {
     const mls = new MultiLangString;
     const setData = () => mls.set(`hello`, `world`);
-    expect(setData).not.toThrow();
+    expect(setData).not.to.throw();
   });
 
   it(`.toJSON()`, () => {
@@ -105,12 +105,12 @@ describe(modelName, () => {
     const pojo = JSON.parse(JSON.stringify(mls));
 
     Object.keys(sampleData)
-    .forEach(key => expect(pojo[key]).toBe(sampleData[key]));
+    .forEach(key => expect(pojo[key]).to.equal(sampleData[key]));
 
   });
 
-  it(`~~.type~~`, () => {
-    expect(new MultiLangString().type).toBeUndefined();
+  it(`.type (should not exist)`, () => {
+    expect(new MultiLangString().type).to.be.undefined;
   });
 
 });

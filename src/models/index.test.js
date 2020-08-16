@@ -10,8 +10,8 @@ const { expect } = chai;
 describe(`models`, () => {
 
   it(`has the expected exports`, () => {
-    expect(MultiLangString.name).toBe(`MultiLangString`);
-    expect(Language.name).toBe(`Language`);
+    expect(MultiLangString.name).to.equal(`MultiLangString`);
+    expect(Language.name).to.equal(`Language`);
   });
 
 });

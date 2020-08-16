@@ -10,11 +10,11 @@ const { expect } = chai;
 describe(`utilities`, () => {
 
   it(`regexp`, () => {
-    expect(regexp).toBeInstanceOf(Object);
+    expect(regexp).not.to.be.undefined;
   });
 
   it(`types`, () => {
-    expect(types).toBeInstanceOf(Object);
+    expect(types).not.to.be.undefined;
   });
 
 });

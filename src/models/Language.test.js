@@ -10,46 +10,46 @@ const { expect } = chai;
 describe(`Language`, () => {
 
   it(`class: Language`, () => {
-    expect(Language.name).toBe(`Language`);
+    expect(Language.name).to.equal(`Language`);
   });
 
   it(`Abbreviation`, () => {
     const lang = new Language;
-    expect(() => { lang.abbreviation = undefined; }).not.toThrow();
-    expect(() => { lang.abbreviation = `ctm`; }).not.toThrow();
-    expect(() => { lang.abbreviation = `en!`; }).toThrowMatching(e => e.name === `AbbreviationError`);
+    expect(() => { lang.abbreviation = undefined; }).not.to.throw();
+    expect(() => { lang.abbreviation = `ctm`; }).not.to.throw();
+    expect(() => { lang.abbreviation = `en!`; }).to.throw().with.property(`name`, `AbbreviationError`);
   });
 
   it(`Custom Property`, () => {
     const lang = new Language;
-    expect(() => { lang.deleted = true; }).not.toThrow();
-    expect(lang.deleted).toBe(true);
+    expect(() => { lang.deleted = true; }).not.to.throw();
+    expect(lang.deleted).to.equal(true);
   });
 
   it(`Glottocode`, () => {
     const lang = new Language;
-    expect(() => { lang.glottolog = undefined; }).not.toThrow();
-    expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
-    expect(() => { lang.glottolog = `stan129`; }).toThrowMatching(e => e.name === `GlottoCodeError`);
+    expect(() => { lang.glottolog = undefined; }).not.to.throw();
+    expect(() => { lang.glottolog = `stan1293`; }).not.to.throw();
+    expect(() => { lang.glottolog = `stan129`; }).to.throw().with.property(`name`, `GlottoCodeError`);
   });
 
   it(`ISO 639-3 code`, () => {
     const lang = new Language;
-    expect(() => { lang.iso = undefined; }).not.toThrow();
-    expect(() => { lang.iso = `ctm`; }).not.toThrow();
-    expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
+    expect(() => { lang.iso = undefined; }).not.to.throw();
+    expect(() => { lang.iso = `ctm`; }).not.to.throw();
+    expect(() => { lang.iso = `en`; }).to.throw().with.property(`name`, `ISOCodeError`);
   });
 
   describe(`name`, () => {
 
     it(`class: MultiLangString`, () => {
       const lang = new Language();
-      expect(lang.name).toBeInstanceOf(MultiLangString);
+      expect(lang.name).to.be.instanceOf(MultiLangString);
     });
 
     it(`enumerable`, () => {
       const lang = new Language({ name: 'Chitimacha' });
-      expect(Object.keys(lang)).toContain(`name`);
+      expect(Object.keys(lang)).to.contain(`name`);
     });
 
     it(`Success: String`, () => {
@@ -59,7 +59,7 @@ describe(`Language`, () => {
 
       lang.name = name;
 
-      expect(lang.name.get(`eng`)).toBe(name);
+      expect(lang.name.get(`eng`)).to.equal(name);
 
     });
 
@@ -74,15 +74,15 @@ describe(`Language`, () => {
 
       lang.name = name;
 
-      expect(lang.name.get(`eng`)).toBe(name.eng);
-      expect(lang.name.get(`fra`)).toBe(name.fra);
+      expect(lang.name.get(`eng`)).to.equal(name.eng);
+      expect(lang.name.get(`fra`)).to.equal(name.fra);
 
     });
 
     it(`Error: bad data`, () => {
       const lang = new Language;
       const setBadLang = () => { lang.name = false; };
-      expect(setBadLang).toThrowMatching(e => e.name === `MultiLangStringDataError`);
+      expect(setBadLang).to.throw().with.property(`name`, `MultiLangStringDataError`);
     });
 
   });

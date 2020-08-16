@@ -11,7 +11,7 @@ const { Model }  = core;
 describe(`core`, () => {
 
   it(`Model`, () => {
-    expect(Model.name).toBe(`Model`);
+    expect(Model.name).to.equal(`Model`);
   });
 
 });

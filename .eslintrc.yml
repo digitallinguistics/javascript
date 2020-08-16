@@ -5,6 +5,12 @@ parserOptions:
   ecmaFeatures:
     impliedStrict: true
   sourceType: module
+overrides:
+  - files:
+      - '*.test.js'
+      - '*.spec.js'
+    rules:
+      no-unused-expressions: 'off'
 env:
   browser: false
   es6:     true

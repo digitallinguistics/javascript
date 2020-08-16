@@ -10,15 +10,15 @@ const { expect } = chai;
 describe(`dlx`, () => {
 
   it(`core`, () => {
-    expect(core).toBeInstanceOf(Object);
+    expect(core).not.to.be.undefined;
   });
 
   it(`models`, () => {
-    expect(models).toBeInstanceOf(Object);
+    expect(models).not.to.be.undefined;
   });
 
   it(`utilities`, () => {
-    expect(utilities).toBeInstanceOf(Object);
+    expect(utilities).not.to.be.undefined;
   });
 
 });
