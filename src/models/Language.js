@@ -104,7 +104,7 @@ class Language extends Model {
         set(val) {
           if (val === undefined) return;
           validateAbbreviation(val);
-          this.#abbreviation = new String(val);
+          this.#abbreviation = val;
         },
       },
 
@@ -117,7 +117,7 @@ class Language extends Model {
         set(val) {
           if (val === undefined) return;
           validateGlottoCode(val);
-          this.#glottolog = new String(val);
+          this.#glottolog = val;
         },
       },
 
@@ -130,7 +130,7 @@ class Language extends Model {
         set(val) {
           if (val === undefined) return;
           validateISOCode(val);
-          this.#iso = new String(val);
+          this.#iso = val;
         },
       },
 
