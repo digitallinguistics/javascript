@@ -1,5 +1,5 @@
 import Transcription from './Transcription.js';
-import Utterance     from './Utterance.js';
+// import Utterance     from './Utterance.js';
 
 describe(`Utterance`, () => {
 
