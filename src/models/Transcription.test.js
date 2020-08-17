@@ -4,7 +4,7 @@
 
 import Transcription from './Transcription.js';
 
-describe.only(`Transcription`, () => {
+describe(`Transcription`, () => {
 
   const testData = {
     IPA:   `hɛˈloʊ`,
