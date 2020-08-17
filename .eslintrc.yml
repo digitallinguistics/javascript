@@ -10,6 +10,7 @@ overrides:
       - '*.test.js'
       - '*.spec.js'
     rules:
+      max-nested-callbacks:  'off'
       no-unused-expressions: 'off'
 env:
   browser: false
