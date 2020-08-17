@@ -5,8 +5,7 @@ import Transcription   from './Transcription.js';
 /**
  * A class representing an utterance.
  * @memberof models
- * @instance
- * @extends core#Model
+ * @extends core.Model
  */
 class Utterance extends Model {
 
