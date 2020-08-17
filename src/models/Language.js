@@ -141,7 +141,8 @@ class Language extends Model {
     // Initialization
 
     Object.assign(this, data);
-    this.name = data.name;
+
+    this.name = this.name ?? new MultiLangString;
 
   }
 
