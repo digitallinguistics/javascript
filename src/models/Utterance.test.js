@@ -1,6 +1,17 @@
+import Transcription from './Transcription.js';
+import Utterance     from './Utterance.js';
+
 describe(`Utterance`, () => {
 
-  it(`transcript is a Transcription object`);
+  it(`transcript is a Transcription object`, () => {
+
+    const transcriptData = `Hello world!`;
+    const utterance  = new Utterance({ transcript: { eng: 'Hello world!' } });
+
+    utterance.transcript.should.be.instanceOf(Transcription);
+    utterance.transcript.get(`eng`).should.equal(transcriptData);
+
+  });
 
   it(`transcript is undefined if absent`);
 
