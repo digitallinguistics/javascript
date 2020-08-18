@@ -18,6 +18,7 @@ describe(`Language`, () => {
     (() => { lang.abbreviation = undefined; }).should.not.throw();
     (() => { lang.abbreviation = `ctm`; }).should.not.throw();
     (() => { lang.abbreviation = `en!`; }).should.throw().with.property(`name`, `AbbreviationError`);
+    (typeof lang.abbreviation).should.not.equal(`object`);
   });
 
   it(`Custom Property`, () => {
@@ -31,6 +32,7 @@ describe(`Language`, () => {
     (() => { lang.glottolog = undefined; }).should.not.throw();
     (() => { lang.glottolog = `stan1293`; }).should.not.throw();
     (() => { lang.glottolog = `stan129`; }).should.throw().with.property(`name`, `GlottoCodeError`);
+    (typeof lang.glottolog).should.not.equal(`object`);
   });
 
   it(`ISO 639-3 code`, () => {
@@ -38,6 +40,7 @@ describe(`Language`, () => {
     (() => { lang.iso = undefined; }).should.not.throw();
     (() => { lang.iso = `ctm`; }).should.not.throw();
     (() => { lang.iso = `en`; }).should.throw().with.property(`name`, `ISOCodeError`);
+    (typeof lang.iso).should.not.equal(`object`);
   });
 
   describe(`name`, () => {
