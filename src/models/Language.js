@@ -93,6 +93,8 @@ class Language extends Model {
 
     // Property Definitions
 
+    Model.defineModelProp(this, `name`, MultiLangString);
+
     Object.defineProperties(this, {
 
       abbreviation: {
@@ -131,17 +133,6 @@ class Language extends Model {
           if (val === undefined) return;
           validateISOCode(val);
           this.#iso = new String(val);
-        },
-      },
-
-      name: {
-        configurable: true,
-        enumerable:   true,
-        get() {
-          return this.#name;
-        },
-        set(val) {
-          this.#name = new MultiLangString(val);
         },
       },
 
