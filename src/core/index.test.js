@@ -1,10 +1,5 @@
 import chai from 'chai';
-import core from './index.js';
-
-const {
-  Collection,
-  Model,
-} = core;
+import { Collection, Model } from './index.js';
 
 chai.should();
 
