@@ -41,6 +41,8 @@ class Utterance extends Model {
 
     Object.assign(this, data);
 
+    // Required properties
+    // TODO: replace with: this.transcription ??= new Transcription;
     this.transcription = this.transcription ?? new Transcription;
     this.translation   = this.translation ?? new MultiLangString;
 
