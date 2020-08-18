@@ -11,19 +11,19 @@ class Utterance extends Model {
 
   /**
    * The transcript of this utterance, as a Transcription object
-   * @type {Transcription}
+   * @type {models.Transcription}
    */
   #transcript;
 
   /**
    * The transcription of this utterance, as a Transcription object
-   * @type {Transcription}
+   * @type {models.Transcription}
    */
   #transcription;
 
   /**
    * The translation of this utterance, as a MultiLangString object
-   * @type {MultiLangString}
+   * @type {models.MultiLangString}
    */
   #translation;
 

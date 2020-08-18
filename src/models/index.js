@@ -5,5 +5,6 @@
 
 export { default as Language } from './Language.js';
 export { default as MultiLangString } from './MultiLangString.js';
+export { default as Text } from './Text.js';
 export { default as Transcription } from './Transcription.js';
 export { default as Utterance } from './Utterance.js';
