@@ -3,14 +3,7 @@
  * @namespace utilities.types
  */
 
-import isAbbreviation from './isAbbreviation.js';
-import isGlottoCode   from './isGlottoCode.js';
-import isISOCode      from './isISO.js';
-import isLanguageTag  from './isLanguageTag.js';
-
-export default {
-  isAbbreviation,
-  isGlottoCode,
-  isISOCode,
-  isLanguageTag,
-};
+export { default as isAbbreviation } from './isAbbreviation.js';
+export { default as isGlottoCode } from './isGlottoCode.js';
+export { default as isISOCode } from './isISO.js';
+export { default as isLanguageTag } from './isLanguageTag.js';

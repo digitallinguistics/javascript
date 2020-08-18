@@ -2,56 +2,54 @@
   max-nested-callbacks,
 */
 
-const { models } = require(`../../test`);
+import chai from 'chai';
+import { Language, MultiLangString } from './index.js';
 
-const {
-  MultiLangString,
-  Language,
-} = models;
+chai.should();
 
 describe(`Language`, () => {
 
   it(`class: Language`, () => {
-    expect(Language.name).toBe(`Language`);
+    Language.name.should.equal(`Language`);
   });
 
   it(`Abbreviation`, () => {
     const lang = new Language;
-    expect(() => { lang.abbreviation = undefined; }).not.toThrow();
-    expect(() => { lang.abbreviation = `ctm`; }).not.toThrow();
-    expect(() => { lang.abbreviation = `en!`; }).toThrowMatching(e => e.name === `AbbreviationError`);
+    (() => { lang.abbreviation = undefined; }).should.not.throw();
+    (() => { lang.abbreviation = `ctm`; }).should.not.throw();
+    (() => { lang.abbreviation = `en!`; }).should.throw().with.property(`name`, `AbbreviationError`);
   });
 
   it(`Custom Property`, () => {
     const lang = new Language;
-    expect(() => { lang.deleted = true; }).not.toThrow();
-    expect(lang.deleted).toBe(true);
+    (() => { lang.deleted = true; }).should.not.throw();
+    lang.deleted.should.equal(true);
   });
 
   it(`Glottocode`, () => {
     const lang = new Language;
-    expect(() => { lang.glottolog = undefined; }).not.toThrow();
-    expect(() => { lang.glottolog = `stan1293`; }).not.toThrow();
-    expect(() => { lang.glottolog = `stan129`; }).toThrowMatching(e => e.name === `GlottoCodeError`);
+    (() => { lang.glottolog = undefined; }).should.not.throw();
+    (() => { lang.glottolog = `stan1293`; }).should.not.throw();
+    (() => { lang.glottolog = `stan129`; }).should.throw().with.property(`name`, `GlottoCodeError`);
   });
 
   it(`ISO 639-3 code`, () => {
     const lang = new Language;
-    expect(() => { lang.iso = undefined; }).not.toThrow();
-    expect(() => { lang.iso = `ctm`; }).not.toThrow();
-    expect(() => { lang.iso = `en`; }).toThrowMatching(e => e.name === `ISOCodeError`);
+    (() => { lang.iso = undefined; }).should.not.throw();
+    (() => { lang.iso = `ctm`; }).should.not.throw();
+    (() => { lang.iso = `en`; }).should.throw().with.property(`name`, `ISOCodeError`);
   });
 
   describe(`name`, () => {
 
     it(`class: MultiLangString`, () => {
       const lang = new Language();
-      expect(lang.name).toBeInstanceOf(MultiLangString);
+      lang.name.should.be.instanceOf(MultiLangString);
     });
 
     it(`enumerable`, () => {
       const lang = new Language({ name: 'Chitimacha' });
-      expect(Object.keys(lang)).toContain(`name`);
+      Object.keys(lang).should.contain(`name`);
     });
 
     it(`Success: String`, () => {
@@ -61,7 +59,7 @@ describe(`Language`, () => {
 
       lang.name = name;
 
-      expect(lang.name.get(`eng`)).toBe(name);
+      lang.name.get(`eng`).should.equal(name);
 
     });
 
@@ -76,15 +74,15 @@ describe(`Language`, () => {
 
       lang.name = name;
 
-      expect(lang.name.get(`eng`)).toBe(name.eng);
-      expect(lang.name.get(`fra`)).toBe(name.fra);
+      lang.name.get(`eng`).should.equal(name.eng);
+      lang.name.get(`fra`).should.equal(name.fra);
 
     });
 
     it(`Error: bad data`, () => {
       const lang = new Language;
       const setBadLang = () => { lang.name = false; };
-      expect(setBadLang).toThrowMatching(e => e.name === `MultiLangStringDataError`);
+      setBadLang.should.throw().with.property(`name`, `MultiLangStringDataError`);
     });
 
   });

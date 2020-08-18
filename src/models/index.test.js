@@ -2,18 +2,16 @@
   max-nested-callbacks,
 */
 
-const { models } = require(`../../test`);
+import chai                          from 'chai';
+import { Language, MultiLangString } from './index.js';
 
-const {
-  MultiLangString,
-  Language,
-} = models;
+chai.should();
 
 describe(`models`, () => {
 
   it(`has the expected exports`, () => {
-    expect(MultiLangString.name).toBe(`MultiLangString`);
-    expect(Language.name).toBe(`Language`);
+    MultiLangString.name.should.equal(`MultiLangString`);
+    Language.name.should.equal(`Language`);
   });
 
 });

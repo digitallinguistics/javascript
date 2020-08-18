@@ -1,6 +1,7 @@
-const { utilities } = require(`../../test`);
+import chai              from 'chai';
+import { regexp, types } from './index.js';
 
-const { regexp, types } = utilities;
+const should = chai.should();
 
 /**
  * Check that the utilities module has the expected exports
@@ -9,11 +10,11 @@ const { regexp, types } = utilities;
 describe(`utilities`, () => {
 
   it(`regexp`, () => {
-    expect(regexp).toBeInstanceOf(Object);
+    should.exist(regexp);
   });
 
   it(`types`, () => {
-    expect(types).toBeInstanceOf(Object);
+    should.exist(types);
   });
 
 });

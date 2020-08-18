@@ -3,10 +3,5 @@
  * @namespace utilities
  */
 
-import regexp from './regexp/index.js';
-import types  from './types/index.js';
-
-export default {
-  regexp,
-  types,
-};
+export * as regexp from './regexp/index.js';
+export * as types from './types/index.js';

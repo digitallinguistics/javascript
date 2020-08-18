@@ -1,9 +1,12 @@
-const { core: { Model } } = require(`../../test`);
+import chai  from 'chai';
+import Model from './Model.js';
+
+chai.should();
 
 describe(`Model`, () => {
 
   it(`is the Model class`, () => {
-    expect(Model.name).toBe(`Model`);
+    Model.name.should.equal(`Model`);
   });
 
 });

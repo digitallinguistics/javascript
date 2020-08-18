@@ -3,10 +3,5 @@
  * @namespace models
  */
 
-import Language        from './Language.js';
-import MultiLangString from './MultiLangString.js';
-
-export default {
-  Language,
-  MultiLangString,
-};
+export { default as Language } from './Language.js';
+export { default as MultiLangString } from './MultiLangString.js';

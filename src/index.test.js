@@ -1,4 +1,7 @@
-const { core, models, utilities } = require(`../test`);
+import chai                        from 'chai';
+import { core, models, utilities } from './index.js';
+
+const should = chai.should();
 
 /**
  * Check that the DLx library has the expected exports
@@ -7,15 +10,15 @@ const { core, models, utilities } = require(`../test`);
 describe(`dlx`, () => {
 
   it(`core`, () => {
-    expect(core).toBeInstanceOf(Object);
+    should.exist(core);
   });
 
   it(`models`, () => {
-    expect(models).toBeInstanceOf(Object);
+    should.exist(models);
   });
 
   it(`utilities`, () => {
-    expect(utilities).toBeInstanceOf(Object);
+    should.exist(utilities);
   });
 
 });
