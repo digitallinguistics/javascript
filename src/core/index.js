@@ -3,6 +3,5 @@
  * @namespace core
  */
 
-import Model from './Model.js';
-
-export default { Model };
+export { default as Collection } from './Collection.js';
+export { default as Model } from './Model.js';
