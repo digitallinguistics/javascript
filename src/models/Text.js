@@ -28,7 +28,7 @@ class Text extends Model {
    */
   constructor(data = {}) {
 
-    super();
+    super(data);
 
     Model.defineArrayProp(this, `utterances`, Utterance);
     Model.defineModelProp(this, `title`, MultiLangString);
