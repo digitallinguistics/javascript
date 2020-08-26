@@ -1,31 +1,18 @@
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 import Transcription   from './Transcription.js';
+import Word            from './Word.js';
 
 /**
  * A class representing an utterance.
  * @memberof models
  * @extends core.Model
+ * @prop {models.Transcription}   transcript    - The transcript for this utterance
+ * @prop {models.Transcription}   transcription - The transcription of this utterance
+ * @prop {models.MultiLangString} translation   - The translation of this utterance
+ * @prop {core.Collection}        words         - An array of words in this utterance
  */
 class Utterance extends Model {
-
-  /**
-   * The transcript of this utterance, as a Transcription object
-   * @type {models.Transcription}
-   */
-  #transcript;
-
-  /**
-   * The transcription of this utterance, as a Transcription object
-   * @type {models.Transcription}
-   */
-  #transcription;
-
-  /**
-   * The translation of this utterance, as a MultiLangString object
-   * @type {models.MultiLangString}
-   */
-  #translation;
 
   /**
    * Create a new Utterance
@@ -38,6 +25,7 @@ class Utterance extends Model {
     Model.defineModelProp(this, `transcript`, Transcription);
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
+    Model.defineArrayProp(this, `words`, Word);
 
     Object.assign(this, data);
 

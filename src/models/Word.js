@@ -4,10 +4,18 @@ import Transcription   from './Transcription.js';
 
 /**
  * A class representing a [DLx Word Token]{@link https://format.digitallinguistics.io/schemas/Word.html}.
+ * @memberof models
  * @extends Model
+ * @prop {models.MultiLangString} literal       - The literal translation of this word token
+ * @prop {models.Transcription}   transcription - The transcription of this word token
+ * @prop {models.MultiLangString} translation   - The translation of this word token
  */
 class Word extends Model {
 
+  /**
+   * Create a new word token
+   * @param {Object} [data={}] The data for this word token
+   */
   constructor(data = {}) {
 
     super();

@@ -1,12 +1,10 @@
-/**
- * @module models.MultiLangString
- */
-
 import isLanguageTag from '../utilities/types/isLanguageTag.js';
 
 /**
  * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
  * @param {Any} input The input to validate
+ * @memberof models.MultiLangString
+ * @inner
  */
 function validateLanguageTag(input) {
   if (!isLanguageTag(input)) {
@@ -19,6 +17,8 @@ function validateLanguageTag(input) {
 /**
  * Validates a String for MultiLangStrings. Throws a type error if the input is not a String.
  * @param {Any} input The input to validate
+ * @memberof models.MultiLangString
+ * @inner
  */
 function validateString(input) {
   if (typeof input !== `string`) {

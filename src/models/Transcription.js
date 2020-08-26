@@ -1,12 +1,10 @@
-/**
- * @module models.Transcription
- */
-
 import isAbbreviation from '../utilities/types/isAbbreviation.js';
 
 /**
   * Validates an abbreviation. Throws a type error if the input is not a valid abbreviation.
   * @param {Any} input The input to validate
+  * @memberof models.Transcription
+  * @inner
   */
 function validateAbbreviation(input) {
   if (!isAbbreviation(input)) {
@@ -19,6 +17,8 @@ function validateAbbreviation(input) {
 /**
   * Validates a String for Transcription values. Throws a type error if the input is not a String.
   * @param {Any} input The input to validate
+  * @memberof models.Transcription
+  * @inner
   */
 function validateString(input) {
   if (typeof input !== `string`) {
