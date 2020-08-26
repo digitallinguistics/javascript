@@ -59,4 +59,18 @@ describe(`Word`, () => {
     should.not.exist(word.translation);
   });
 
+  it(`analysis is a Transcription object`, () => {
+
+    const word = new Word({ analysis: testData });
+
+    word.analysis.should.be.instanceOf(Transcription);
+    word.analysis.get(`eng`).should.equal(testData.eng);
+
+  });
+
+  it(`analysis is undefined if absent`, () => {
+    const word = new Word;
+    should.not.exist(word.analysis);
+  });
+
 });
