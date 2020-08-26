@@ -7,6 +7,7 @@ import Transcription   from './Transcription.js';
  * @memberof models
  * @extends Model
  * @prop {models.Transcription}   analysis      - The morphological analysis of this word, with morpheme breaks
+ * @prop {models.MultiLangString} gloss         - The glossed analysis of this word, with morpheme breaks
  * @prop {models.MultiLangString} literal       - The literal translation of this word token
  * @prop {models.Transcription}   transcription - The transcription of this word token
  * @prop {models.MultiLangString} translation   - The translation of this word token
@@ -22,6 +23,7 @@ class Word extends Model {
     super();
 
     Model.defineModelProp(this, `analysis`, Transcription);
+    Model.defineModelProp(this, `gloss`, MultiLangString);
     Model.defineModelProp(this, `literal`, MultiLangString);
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
