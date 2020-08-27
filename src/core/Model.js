@@ -79,6 +79,20 @@ class Model {
 
   }
 
+  /**
+   * Create a "type" property on an object that is non-writable
+   * @param  {Object} object The object to define the property on
+   * @param  {String} type   The value to use for the type
+   */
+  static defineTypeProp(object, type) {
+    Object.defineProperty(object, `type`, {
+      configurable: true,
+      enumerable:   true,
+      value:        type,
+      writable:     false,
+    });
+  }
+
 }
 
 export default Model;
