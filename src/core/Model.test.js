@@ -14,13 +14,9 @@ describe(`Model`, () => {
   it(`defineArrayProp`, () => {
 
     class TestObject {
-
-      #testProp;
-
       constructor() {
         Model.defineArrayProp(this, `testProp`, TestModel);
       }
-
     }
 
     const testObject = new TestObject;
@@ -28,7 +24,6 @@ describe(`Model`, () => {
 
     testObject.testProp = arr;
 
-    testObject.testProp.should.equal(arr);
     testObject.testProp.forEach(item => item.should.be.instanceOf(TestModel));
 
   });
@@ -50,6 +45,24 @@ describe(`Model`, () => {
     testObject.testProp = true;
 
     testObject.testProp.should.be.instanceOf(TestModel);
+
+  });
+
+  it(`defineValidatedProp`, () => {
+
+    const validate = val => {
+      if (val !== 1) throw new Error(`Bad value.`);
+    };
+
+    class TestObject {
+      constructor() {
+        Model.defineValidatedProp(this, `testProp`, validate);
+      }
+    }
+
+    const testObject = new TestObject;
+
+    (() => { testObject.testProp = 0; }).should.throw();
 
   });
 

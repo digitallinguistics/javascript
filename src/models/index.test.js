@@ -10,6 +10,7 @@ import {
   Text,
   Transcription,
   Utterance,
+  Word,
 } from './index.js';
 
 chai.should();
@@ -22,6 +23,7 @@ describe(`models`, () => {
     Text.name.should.equal(`Text`);
     Transcription.name.should.equal(`Transcription`);
     Utterance.name.should.equal(`Utterance`);
+    Word.name.should.equal(`Word`);
   });
 
 });
