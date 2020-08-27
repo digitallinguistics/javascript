@@ -26,6 +26,7 @@ class Utterance extends Model {
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
     Model.defineArrayProp(this, `words`, Word);
+    Model.defineTypeProp(this, `Utterance`);
 
     Object.assign(this, data);
 

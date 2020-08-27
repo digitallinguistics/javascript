@@ -7,6 +7,7 @@ import chai from 'chai';
 import {
   Language,
   MultiLangString,
+  Tags,
   Text,
   Transcription,
   Utterance,
@@ -17,9 +18,10 @@ chai.should();
 
 describe(`models`, () => {
 
-  it(`has the expected exports`, () => {
+  it(`have the expected exports`, () => {
     MultiLangString.name.should.equal(`MultiLangString`);
     Language.name.should.equal(`Language`);
+    Tags.name.should.equal(`Tags`);
     Text.name.should.equal(`Text`);
     Transcription.name.should.equal(`Transcription`);
     Utterance.name.should.equal(`Utterance`);

@@ -21,6 +21,7 @@ class Text extends Model {
 
     Model.defineArrayProp(this, `utterances`, Utterance);
     Model.defineModelProp(this, `title`, MultiLangString);
+    Model.defineTypeProp(this, `Text`);
 
     Object.assign(this, data);
 

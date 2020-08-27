@@ -63,8 +63,10 @@ class Model {
     Object.defineProperty(object, `type`, {
       configurable: true,
       enumerable:   true,
-      value:        type,
-      writable:     false,
+      get() {
+        return type;
+      },
+      set() {}, // eslint-disable-line no-empty-function
     });
   }
 

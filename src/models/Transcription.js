@@ -1,4 +1,5 @@
 import isAbbreviation from '../utilities/types/isAbbreviation.js';
+import Model          from '../core/Model.js';
 
 /**
   * Validates an abbreviation. Throws a type error if the input is not a valid abbreviation.
@@ -62,6 +63,8 @@ class Transcription extends Map {
     Object.values(data).forEach(validateString);
 
     super(Object.entries(data));
+
+    Model.defineTypeProp(this, `Transcription`);
 
   }
 

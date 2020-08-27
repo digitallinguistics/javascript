@@ -10,56 +10,15 @@ describe(`Word`, () => {
   const testData = { eng: `hello` };
 
   it(`instantiates without data`, () => {
-    (() => new Word).should.not.throw();
-  });
-
-  it(`transcription is a Transcription object`, () => {
-
-    const word = new Word({ transcription: testData });
-
-    word.transcription.should.be.instanceOf(Transcription);
-    word.transcription.get(`eng`).should.equal(testData.eng);
-
-  });
-
-  it(`transcription is an empty Transcription (Map) object if absent`, () => {
-
     const word = new Word;
-
+    should.not.exist(word.analysis);
+    should.not.exist(word.literal);
     word.transcription.should.be.instanceOf(Transcription);
     word.transcription.size.should.equal(0);
-
-  });
-
-  it(`literal translation is a MultiLangString object`, () => {
-
-    const word = new Word({ literal: testData });
-
-    word.literal.should.be.instanceOf(MultiLangString);
-    word.literal.get(`eng`).should.equal(testData.eng);
-
-  });
-
-  it(`literal translation is undefined if absent`, () => {
-    const word = new Word;
-    should.not.exist(word.literal);
-  });
-
-  it(`free translation is a MultiLangString object`, () => {
-
-    const word = new Word({ translation: testData });
-
-    word.translation.should.be.instanceOf(MultiLangString);
-    word.translation.get(`eng`).should.equal(testData.eng);
-
-  });
-
-  it(`free translation is undefined if absent`, () => {
-    const word = new Word;
     should.not.exist(word.translation);
   });
 
-  it(`analysis is a Transcription object`, () => {
+  it(`analysis`, () => {
 
     const word = new Word({ analysis: testData });
 
@@ -68,9 +27,36 @@ describe(`Word`, () => {
 
   });
 
-  it(`analysis is undefined if absent`, () => {
+  it(`literal`, () => {
+
+    const word = new Word({ literal: testData });
+
+    word.literal.should.be.instanceOf(MultiLangString);
+    word.literal.get(`eng`).should.equal(testData.eng);
+
+  });
+
+  it(`transcription`, () => {
+
+    const word = new Word({ transcription: testData });
+
+    word.transcription.should.be.instanceOf(Transcription);
+    word.transcription.get(`eng`).should.equal(testData.eng);
+
+  });
+
+  it(`translation`, () => {
+
+    const word = new Word({ translation: testData });
+
+    word.translation.should.be.instanceOf(MultiLangString);
+    word.translation.get(`eng`).should.equal(testData.eng);
+
+  });
+
+  it(`type`, () => {
     const word = new Word;
-    should.not.exist(word.analysis);
+    word.type.should.equal(`Word`);
   });
 
 });

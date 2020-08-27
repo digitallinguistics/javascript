@@ -75,4 +75,9 @@ describe(`Transcription`, () => {
 
   });
 
+  it(`type`, () => {
+    const txn = new Transcription;
+    txn.type.should.equal(`Transcription`);
+  });
+
 });

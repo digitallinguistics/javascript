@@ -48,6 +48,18 @@ describe(`Model`, () => {
 
   });
 
+  it(`defineTypeProp`, () => {
+
+    const obj = {};
+
+    Model.defineTypeProp(obj, `Test`);
+
+    obj.type.should.equal(`Test`);
+    (() => { obj.type = `test`; }).should.not.throw();
+    obj.type.should.equal(`Test`);
+
+  });
+
   it(`defineValidatedProp`, () => {
 
     const validate = val => {

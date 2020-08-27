@@ -55,7 +55,6 @@ describe(`Language`, () => {
   it(`type`, () => {
     const lang = new Language;
     lang.type.should.equal(`Language`);
-    (() => { lang.type = `language`; }).should.throw();
   });
 
 });
