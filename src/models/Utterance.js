@@ -1,5 +1,6 @@
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+import Tags            from './Tags.js';
 import Transcription   from './Transcription.js';
 import Word            from './Word.js';
 
@@ -22,11 +23,12 @@ class Utterance extends Model {
 
     super();
 
+    Model.defineModelProp(this, `tags`, Tags);
     Model.defineModelProp(this, `transcript`, Transcription);
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
-    Model.defineArrayProp(this, `words`, Word);
     Model.defineTypeProp(this, `Utterance`);
+    Model.defineArrayProp(this, `words`, Word);
 
     Object.assign(this, data);
 

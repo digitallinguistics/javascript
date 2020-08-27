@@ -1,5 +1,6 @@
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+import Tags            from './Tags.js';
 import Transcription   from './Transcription.js';
 
 /**
@@ -25,6 +26,7 @@ class Word extends Model {
     Model.defineModelProp(this, `analysis`, Transcription);
     Model.defineModelProp(this, `gloss`, MultiLangString);
     Model.defineModelProp(this, `literal`, MultiLangString);
+    Model.defineModelProp(this, `tags`, Tags);
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
     Model.defineTypeProp(this, `Word`);

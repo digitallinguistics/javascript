@@ -6,7 +6,7 @@ import chai            from 'chai';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
 
-const should = chai.should();
+chai.should();
 
 const modelName = `MultiLangString`;
 
@@ -20,6 +20,11 @@ describe(modelName, () => {
   });
 
   describe(`data`, () => {
+
+    it(`no data`, () => {
+      const mls = new MultiLangString;
+      mls.type.should.equal(`MultiLangString`);
+    });
 
     it(`String`, () => {
       const data = `hello`;

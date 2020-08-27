@@ -17,6 +17,7 @@ describe(`Tags`, () => {
     const tags = new Tags;
     tags.should.be.instanceOf(Map);
     tags.size.should.equal(0);
+    tags.type.should.equal(`Tags`);
   });
 
   it(`throws with bad data`, () => {
