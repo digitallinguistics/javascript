@@ -1,4 +1,5 @@
 import isLanguageTag from '../utilities/types/isLanguageTag.js';
+import Model         from '../core/Model.js';
 
 /**
  * Validates a language tag. Throws a type error if the input is not a valid IETF language tag.
@@ -75,6 +76,8 @@ class MultiLangString extends Map {
     // INSTANTIATE MODEL
 
     super(Object.entries(data));
+
+    Model.defineTypeProp(this, `MultiLangString`);
 
   }
 

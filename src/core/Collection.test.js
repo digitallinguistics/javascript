@@ -34,4 +34,9 @@ describe(`Collection`, () => {
 
   });
 
+  it(`type`, () => {
+    const collection = new Collection;
+    collection.type.should.equal(`Collection`);
+  });
+
 });

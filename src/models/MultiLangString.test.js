@@ -109,8 +109,9 @@ describe(modelName, () => {
 
   });
 
-  it(`.type (should not exist)`, () => {
-    should.not.exist(new MultiLangString().type);
+  it(`.type`, () => {
+    const mls = new MultiLangString;
+    mls.type.should.equal(`MultiLangString`);
   });
 
 });

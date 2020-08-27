@@ -27,6 +27,7 @@ class Word extends Model {
     Model.defineModelProp(this, `literal`, MultiLangString);
     Model.defineModelProp(this, `transcription`, Transcription);
     Model.defineModelProp(this, `translation`, MultiLangString);
+    Model.defineTypeProp(this, `Word`);
 
     Object.assign(this, data);
 

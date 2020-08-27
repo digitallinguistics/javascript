@@ -4,6 +4,10 @@ import Text            from './Text.js';
 
 describe(`Text`, () => {
 
+  it(`class: Text`, () => {
+    Text.name.should.equal(`Text`);
+  });
+
   it(`instantiates with no data`, () => {
 
     const text = new Text;
@@ -13,13 +17,27 @@ describe(`Text`, () => {
 
   });
 
-  it(`instantiates with data`, () => {
+  it(`title`, () => {
 
-    const data = {
+    const text = new Text({
       title: {
         eng: `The Little Prince`,
         fra: `Le Petit Prince`,
       },
+    });
+
+    text.title.get(`fra`).should.equal(`Le Petit Prince`);
+
+  });
+
+  it(`type`, () => {
+    const text = new Text;
+    text.type.should.equal(`Text`);
+  });
+
+  it(`utterances`, () => {
+
+    const text = new Text({
       utterances: [
         {
           transcription: {
@@ -28,14 +46,9 @@ describe(`Text`, () => {
           translation:   `the little prince`,
         },
       ],
-    };
+    });
 
-    const text = new Text(data);
-
-    text.title.get(`fra`).should.equal(data.title.fra);
     text.utterances.length.should.equal(1);
-    text.utterances[0].transcription.get(`fra`).should.equal(`le petite prince`);
-    text.utterances[0].translation.get(`eng`).should.equal(`the little prince`);
 
   });
 
