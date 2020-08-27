@@ -5,12 +5,26 @@
 import chai from 'chai';
 import { Language, MultiLangString } from './index.js';
 
-chai.should();
+const should = chai.should();
 
 describe(`Language`, () => {
 
   it(`class: Language`, () => {
     Language.name.should.equal(`Language`);
+  });
+
+  it(`instantiates with no data`, () => {
+
+    const lang = new Language;
+
+    should.not.exist(lang.abbreviation);
+    should.not.exist(lang.glottolog);
+    should.not.exist(lang.iso);
+    should.not.exist(lang.tags);
+
+    lang.type.should.equal(`Language`);
+    lang.name.should.be.instanceOf(MultiLangString);
+
   });
 
   it(`abbreviation`, () => {
@@ -22,9 +36,14 @@ describe(`Language`, () => {
   });
 
   it(`custom property`, () => {
+
     const lang = new Language;
     (() => { lang.deleted = true; }).should.not.throw();
     lang.deleted.should.equal(true);
+
+    const l = new Language({ customProperty: true });
+    l.customProperty.should.be.true;
+
   });
 
   it(`glottolog`, () => {
@@ -44,12 +63,14 @@ describe(`Language`, () => {
   });
 
   it(`name`, () => {
-
     const lang = new Language({ name: { eng: `Chitimacha` } });
-
     lang.name.should.be.instanceOf(MultiLangString);
     lang.name.get(`eng`).should.equal(`Chitimacha`);
+  });
 
+  it(`tags`, () => {
+    const lang = new Language({ tags: { position: `final` } });
+    lang.tags.get(`position`).should.equal(`final`);
   });
 
   it(`type`, () => {

@@ -3,6 +3,7 @@ import isGlottoCode    from '../utilities/types/isGlottoCode.js';
 import isISOCode       from '../utilities/types/isISO.js';
 import Model           from '../core/Model.js';
 import MultiLangString from './MultiLangString.js';
+import Tags            from './Tags.js';
 
 /**
  * Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.
@@ -54,6 +55,7 @@ function validateISOCode(input) {
  * @prop {String}                 glottolog    - The Glottocode for this language
  * @prop {String}                 iso          - The ISO 639-3 code for this language
  * @prop {models.MultiLangString} name         - The name of this language
+ * @prop {models.Tags}            tags         - The tags for this language
  * @prop {String}                 type         - "Language"
  */
 class Language extends Model {
@@ -65,6 +67,7 @@ class Language extends Model {
    * @param {String}            [data.glottolog]    The Glottolog Code for this language.
    * @param {String}            [data.iso]          The ISO 639-3 code for this language.
    * @param {Map|Object|String} [data.name]         The name of this language. May be a string if English, an Object formatted as a [MultiLangString]{@link https://format.digitallinguistics.io/schemas/MultiLangString.html}, or a Map of language tags => transcriptions.
+   * @param {Map|Object}        [data.tags]         A Map or Object of tags for this Language, formatted as a [DLx Tags object]{@link https://format.digitallinguistics.io/schemas/Tags.html}.
    */
   constructor(data = {}) {
 
@@ -72,11 +75,12 @@ class Language extends Model {
 
     // Property Definitions
 
-    Model.defineModelProp(this, `name`, MultiLangString);
-    Model.defineTypeProp(this, `Language`);
     Model.defineValidatedProp(this, `abbreviation`, validateAbbreviation);
     Model.defineValidatedProp(this, `glottolog`, validateGlottoCode);
     Model.defineValidatedProp(this, `iso`, validateISOCode);
+    Model.defineTypeProp(this, `Language`);
+    Model.defineModelProp(this, `name`, MultiLangString);
+    Model.defineModelProp(this, `tags`, Tags);
 
     // Initialization
 
