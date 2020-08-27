@@ -55,6 +55,20 @@ class Model {
   }
 
   /**
+   * Create a "type" property on an object that is non-writable
+   * @param  {Object} object The object to define the property on
+   * @param  {String} type   The value to use for the type
+   */
+  static defineTypeProp(object, type) {
+    Object.defineProperty(object, `type`, {
+      configurable: true,
+      enumerable:   true,
+      value:        type,
+      writable:     false,
+    });
+  }
+
+  /**
    * A utility function that defines a property on a class that validates its value when set.
    * @param  {Object}   object   [description]
    * @param  {String}   propName [description]
@@ -77,20 +91,6 @@ class Model {
       },
     });
 
-  }
-
-  /**
-   * Create a "type" property on an object that is non-writable
-   * @param  {Object} object The object to define the property on
-   * @param  {String} type   The value to use for the type
-   */
-  static defineTypeProp(object, type) {
-    Object.defineProperty(object, `type`, {
-      configurable: true,
-      enumerable:   true,
-      value:        type,
-      writable:     false,
-    });
   }
 
 }

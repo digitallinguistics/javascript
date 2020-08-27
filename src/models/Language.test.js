@@ -13,7 +13,7 @@ describe(`Language`, () => {
     Language.name.should.equal(`Language`);
   });
 
-  it(`Abbreviation`, () => {
+  it(`abbreviation`, () => {
     const lang = new Language;
     (() => { lang.abbreviation = undefined; }).should.not.throw();
     (() => { lang.abbreviation = `ctm`; }).should.not.throw();
@@ -21,13 +21,13 @@ describe(`Language`, () => {
     (typeof lang.abbreviation).should.not.equal(`object`);
   });
 
-  it(`Custom Property`, () => {
+  it(`custom property`, () => {
     const lang = new Language;
     (() => { lang.deleted = true; }).should.not.throw();
     lang.deleted.should.equal(true);
   });
 
-  it(`Glottocode`, () => {
+  it(`glottolog`, () => {
     const lang = new Language;
     (() => { lang.glottolog = undefined; }).should.not.throw();
     (() => { lang.glottolog = `stan1293`; }).should.not.throw();
@@ -35,7 +35,7 @@ describe(`Language`, () => {
     (typeof lang.glottolog).should.not.equal(`object`);
   });
 
-  it(`ISO 639-3 code`, () => {
+  it(`iso`, () => {
     const lang = new Language;
     (() => { lang.iso = undefined; }).should.not.throw();
     (() => { lang.iso = `ctm`; }).should.not.throw();
@@ -43,51 +43,19 @@ describe(`Language`, () => {
     (typeof lang.iso).should.not.equal(`object`);
   });
 
-  describe(`name`, () => {
+  it(`name`, () => {
 
-    it(`class: MultiLangString`, () => {
-      const lang = new Language();
-      lang.name.should.be.instanceOf(MultiLangString);
-    });
+    const lang = new Language({ name: { eng: `Chitimacha` } });
 
-    it(`enumerable`, () => {
-      const lang = new Language({ name: 'Chitimacha' });
-      Object.keys(lang).should.contain(`name`);
-    });
+    lang.name.should.be.instanceOf(MultiLangString);
+    lang.name.get(`eng`).should.equal(`Chitimacha`);
 
-    it(`Success: String`, () => {
+  });
 
-      const name = `Chitimacha`;
-      const lang = new Language;
-
-      lang.name = name;
-
-      lang.name.get(`eng`).should.equal(name);
-
-    });
-
-    it(`Success: Object`, () => {
-
-      const name = {
-        eng: `Chitimacha`,
-        fra: `chitimacha`,
-      };
-
-      const lang = new Language;
-
-      lang.name = name;
-
-      lang.name.get(`eng`).should.equal(name.eng);
-      lang.name.get(`fra`).should.equal(name.fra);
-
-    });
-
-    it(`Error: bad data`, () => {
-      const lang = new Language;
-      const setBadLang = () => { lang.name = false; };
-      setBadLang.should.throw().with.property(`name`, `MultiLangStringDataError`);
-    });
-
+  it(`type`, () => {
+    const lang = new Language;
+    lang.type.should.equal(`Language`);
+    (() => { lang.type = `language`; }).should.throw();
   });
 
 });

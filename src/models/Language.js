@@ -54,6 +54,7 @@ function validateISOCode(input) {
  * @prop {String}                 glottolog    - The Glottocode for this language
  * @prop {String}                 iso          - The ISO 639-3 code for this language
  * @prop {models.MultiLangString} name         - The name of this language
+ * @prop {String}                 type         - "Language"
  */
 class Language extends Model {
 
@@ -72,6 +73,7 @@ class Language extends Model {
     // Property Definitions
 
     Model.defineModelProp(this, `name`, MultiLangString);
+    Model.defineTypeProp(this, `Language`);
     Model.defineValidatedProp(this, `abbreviation`, validateAbbreviation);
     Model.defineValidatedProp(this, `glottolog`, validateGlottoCode);
     Model.defineValidatedProp(this, `iso`, validateISOCode);
