@@ -38,16 +38,9 @@
 			</li>
 			
 			<li class="dropdown">
-				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
-				<ul class="dropdown-menu ">
-					<li><a href="models.module_Language.html">models.Language</a></li><li><a href="models.module_MultiLangString.html">models.MultiLangString</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="core.Model.html">core.Model</a></li><li><a href="models.Language.html">models.Language</a></li><li><a href="models.MultiLangString.html">models.MultiLangString</a></li>
+					<li><a href="core.Collection.html">core.Collection</a></li><li><a href="core.Model.html">core.Model</a></li><li><a href="models.Language.html">models.Language</a></li><li><a href="models.MultiLangString.html">models.MultiLangString</a></li><li><a href="models.Tags.html">models.Tags</a></li><li><a href="models.Text.html">models.Text</a></li><li><a href="models.Transcription.html">models.Transcription</a></li><li><a href="models.Utterance.html">models.Utterance</a></li><li><a href="models.Word.html">models.Word</a></li>
 				</ul>
 			</li>
 			
@@ -365,6 +358,155 @@
 <dl class="details">
     
 
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>abbreviation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The abbreviation for this language</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>glottolog</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Glottocode for this language</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>iso</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ISO 639-3 code for this language</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="models.MultiLangString.html">models.MultiLangString</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of this language</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>&quot;Language&quot;</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
 	
 
 	
@@ -441,34 +583,81 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         <dl>
             
 <hr>
-<dt class="name" id="abbreviation">
-    <h4 id="abbreviation"><span class="type-signature"></span>abbreviation<span class="type-signature"> :string</span></h4>
-
+<dt>
+    <h4 class="name" id="~validateAbbreviation"><span class="type-signature">&lt;inner> </span>validateAbbreviation(input)</h4>
+    
     
 </dt>
 <dd>
+
     
     <div class="description">
-        <p>The Abbreviation for this Language.</p>
+        <p>Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.</p>
     </div>
     
 
     
-        <h5>Type:</h5>
-        <ul>
-            <li>
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
                 
-<span class="param-type">string</span>
+<span class="param-type">Any</span>
 
 
 
-            </li>
-        </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input to validate</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -510,6 +699,18 @@
 	
 </dl>
 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -517,29 +718,74 @@
         
             
 <hr>
-<dt class="name" id="glottolog">
-    <h4 id="glottolog"><span class="type-signature"></span>glottolog<span class="type-signature"> :string</span></h4>
-
+<dt>
+    <h4 class="name" id="~validateGlottoCode"><span class="type-signature">&lt;inner> </span>validateGlottoCode(input)</h4>
+    
     
 </dt>
 <dd>
+
     
     <div class="description">
-        <p>The Glottolog Code for this Language.</p>
+        <p>Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.</p>
     </div>
     
 
     
-        <h5>Type:</h5>
-        <ul>
-            <li>
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
                 
-<span class="param-type">string</span>
+<span class="param-type">Any</span>
 
 
 
-            </li>
-        </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input to validate</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -581,6 +827,18 @@
 	
 </dl>
 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -588,100 +846,74 @@
         
             
 <hr>
-<dt class="name" id="iso">
-    <h4 id="iso"><span class="type-signature"></span>iso<span class="type-signature"> :string</span></h4>
-
+<dt>
+    <h4 class="name" id="~validateISOCode"><span class="type-signature">&lt;inner> </span>validateISOCode(input)</h4>
+    
     
 </dt>
 <dd>
+
     
     <div class="description">
-        <p>The ISO 639-3 Code for this Language.</p>
+        <p>Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.</p>
     </div>
     
 
     
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">string</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
 
     
 
     
-
     
+        <h5>Parameters:</h5>
+        
 
-    
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
-<hr>
-<dt class="name" id="name">
-    <h4 id="name"><span class="type-signature"></span>name<span class="type-signature"> :Map</span></h4>
+                <td class="name"><code>input</code></td>
+            
 
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>The name of this language, as a <a href="models.MultiLangString.html">MultiLangString</a></p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
+            <td class="type">
+            
                 
-<span class="param-type">Map</span>
+<span class="param-type">Any</span>
 
 
 
-            </li>
-        </ul>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input to validate</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -723,13 +955,23 @@
 	
 </dl>
 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
 
         </dl>
-    
-
     
 
     
@@ -779,7 +1021,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on 2020-08-07T18:37:20+00:00
+		on 2020-08-27T20:17:57+00:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

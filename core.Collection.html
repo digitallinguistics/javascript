@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Documentation Module: Language</title>
+	<title>Documentation Class: Collection</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,16 +38,9 @@
 			</li>
 			
 			<li class="dropdown">
-				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
-				<ul class="dropdown-menu ">
-					<li><a href="models.module_Language.html">models.Language</a></li><li><a href="models.module_MultiLangString.html">models.MultiLangString</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="core.Model.html">core.Model</a></li><li><a href="models.Language.html">models.Language</a></li><li><a href="models.MultiLangString.html">models.MultiLangString</a></li>
+					<li><a href="core.Collection.html">core.Collection</a></li><li><a href="core.Model.html">core.Model</a></li><li><a href="models.Language.html">models.Language</a></li><li><a href="models.MultiLangString.html">models.MultiLangString</a></li><li><a href="models.Tags.html">models.Tags</a></li><li><a href="models.Text.html">models.Text</a></li><li><a href="models.Transcription.html">models.Transcription</a></li><li><a href="models.Utterance.html">models.Utterance</a></li><li><a href="models.Word.html">models.Word</a></li>
 				</ul>
 			</li>
 			
@@ -79,10 +72,19 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: Language</h1>
+	<h1 class="page-title">Class: Collection</h1>
 <section>
 
 <header>
+    
+        <h2>
+            <span class="ancestors"><a href="core.html">core</a>~</span>
+        
+        Collection
+        </h2>
+        
+            <div class="class-description"><p>A class representing a collection. Each item in the collection will be an instance of the provided Model.</p></div>
+        
     
 </header>
 
@@ -91,71 +93,9 @@
     <div class="container-overview">
     
         
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
 <hr>
 <dt>
-    <h4 class="name" id="~validateAbbreviation"><span class="type-signature">&lt;inner> </span>validateAbbreviation(input)</h4>
+    <h4 class="name" id="Collection"><span class="type-signature"></span>new Collection(ItemModel [, array])</h4>
     
     
 </dt>
@@ -163,7 +103,7 @@
 
     
     <div class="description">
-        <p>Validates a language abbreviation. Throws a type error if the input is not a valid abbreviation.</p>
+        <p>Create a new Collection</p>
     </div>
     
 
@@ -186,7 +126,11 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -198,13 +142,13 @@
 
         <tr>
             
-                <td class="name"><code>input</code></td>
+                <td class="name"><code>ItemModel</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Any</span>
+<span class="param-type">function</span>
 
 
 
@@ -212,10 +156,62 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last"><p>The input to validate</p></td>
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The class to use as the model for each item in the collection</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last"><p>The array to instantiate the Collection with</p></td>
         </tr>
 
     
@@ -279,117 +275,18 @@
     
 </dd>
 
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~validateGlottoCode"><span class="type-signature">&lt;inner> </span>validateGlottoCode(input)</h4>
     
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Validates a Glottolog language code. Throws a type error if the input is not a valid Glottolog code.</p>
     </div>
-    
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
+        <h3 class="subsection-title">Extends</h3>
 
         
 
-        
 
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Any</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The input to validate</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
+    <ul>
+        <li>Array</li>
+    </ul>
 
 
     
@@ -404,138 +301,6 @@
 
     
 
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~validateISOCode"><span class="type-signature">&lt;inner> </span>validateISOCode(input)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Validates an ISO 639-3 language code. Throws a type error if the input is not a valid ISO 639-3 code.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Any</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The input to validate</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        </dl>
     
 
     
@@ -585,7 +350,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on 2020-08-07T18:37:20+00:00
+		on 2020-08-27T20:17:57+00:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
